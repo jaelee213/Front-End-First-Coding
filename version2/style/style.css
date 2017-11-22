@@ -301,8 +301,8 @@ body {
 
 #saveBtn {
   width: 90%;
-  padding: 0.25rem;
-  font-size: 1.5rem;
+  padding: 0.8rem 0.5rem;
+  font-size: 1.1rem;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 1.5rem;
@@ -310,20 +310,6 @@ body {
   color: white;
   background-color: #007BFF;
   border: 0.1rem solid #007BFF;
-  border-radius: 0.3rem;
-}
-
-#backBtn {
-  width: 90%;
-  padding: 0.25rem;
-  font-size: 1.5rem;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1.5rem;
-  margin-top: 1rem;
-  color: white;
-  background-color: #DC3545;
-  border: 0.1rem solid #DC3545;
   border-radius: 0.3rem;
 }
 
@@ -474,24 +460,10 @@ body {
   text-align: center;
 }
 
-#saveBtn {
-  width: 90%;
-  padding: 0.25rem;
-  font-size: 1.5rem;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1.5rem;
-  margin-top: 1rem;
-  color: white;
-  background-color: #007BFF;
-  border: 0.1rem solid #007BFF;
-  border-radius: 0.3rem;
-}
-
 #backBtn {
   width: 90%;
-  padding: 0.25rem;
-  font-size: 1.5rem;
+  padding: 0.8rem 0.5rem;
+  font-size: 1.1rem;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 1.5rem;
@@ -667,6 +639,20 @@ body {
   border-radius: 0.5rem;
 }
 
+.editGameBtn {
+  width: 90%;
+  padding: 0.25rem;
+  font-size: 1.5rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1.5rem;
+  margin-top: 0.3rem;
+  color: white;
+  background-color: #007BFF;
+  border: 0.1rem solid #007BFF;
+  border-radius: 0.3rem;
+}
+
 #editGameBtn {
   width: 90%;
   padding: 0.25rem;
@@ -681,7 +667,7 @@ body {
   border-radius: 0.3rem;
 }
 
-#viewStatsBtn {
+.viewStatsBtn {
   width: 90%;
   padding: 0.25rem;
   font-size: 1.5rem;
@@ -799,8 +785,8 @@ body {
 
 #editBtn {
   width: 90%;
-  padding: 0.25rem;
-  font-size: 1.5rem;
+  padding: 0.8rem 0.5rem;
+  font-size: 1.1rem;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 1.5rem;
