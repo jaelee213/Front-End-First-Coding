@@ -17,7 +17,7 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout"> Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="viewgamestatscontainer">
 		<h1 class="vgsgameheader">TeamKongLeeKim</h1>
@@ -41,5 +41,11 @@
 		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
 		<p><input type="button" onclick="location.href='./viewgamestats.html';" value="Save" id="egssaveBtn"></p>
   </div>
+  <script>
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
+  </script>
 </body>
 </html>

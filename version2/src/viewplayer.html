@@ -15,19 +15,19 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout">Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="box2">
     <div class="borderBox2">
       <h1 id="dpn"></h1>
       <hr>
 
-      <!-- ** THE PROF PIC WE MIGHT TAKE OUT ** 
+      <!-- ** THE PROF PIC WE MIGHT TAKE OUT **
 
       <img src="../img/ronaldo.jpg" alt="Cristiano Ronaldo">
       <hr>
 
-      --> 
+      -->
 
       <table class="viewplayertbl">
         <tr>
@@ -77,51 +77,55 @@
       </table>
       <input type="button" onclick="location.href='./editplayer.html';" value="Edit Player" id="editBtn">
       <hr>
-      <input type="button" value="Go back" id="backBtn"> 
+      <input type="button" value="Go back" id="backBtn">
     </div>
   </div>
 
   <script>
     var pla = JSON.parse(localStorage.getItem('playertoedit'));
-    var bBtn = document.getElementById('backBtn'); 
+    var bBtn = document.getElementById('backBtn');
 
-    var fnm = document.getElementById('dfn'); 
+    var fnm = document.getElementById('dfn');
     var lnm = document.getElementById('dln');
-    var nme = document.getElementById('dpn'); 
-    var pos = document.getElementById('dp'); 
-    var jer = document.getElementById('dj'); 
-    var dob = document.getElementById('dd'); 
-    var goa = document.getElementById('dg'); 
-    var ast = document.getElementById('da'); 
-    var gpd = document.getElementById('dgp'); 
-    var fl = document.getElementById('df'); 
-    var rcd = document.getElementById('dr'); 
-    var ycd = document.getElementById('dy'); 
+    var nme = document.getElementById('dpn');
+    var pos = document.getElementById('dp');
+    var jer = document.getElementById('dj');
+    var dob = document.getElementById('dd');
+    var goa = document.getElementById('dg');
+    var ast = document.getElementById('da');
+    var gpd = document.getElementById('dgp');
+    var fl = document.getElementById('df');
+    var rcd = document.getElementById('dr');
+    var ycd = document.getElementById('dy');
 
     window.addEventListener('DOMContentLoaded', function () {
-      fnm.innerHTML = pla.firstname; 
-      lnm.innerHTML = pla.lastname; 
-      nme.innerHTML = pla.name; 
-      pos.innerHTML = pla.position; 
-      jer.innerHTML = pla.jerseynumber; 
-      dob.innerHTML = pla.birthdate; 
-      goa.innerHTML = pla.goals; 
-      ast.innerHTML = pla.assists; 
-      gpd.innerHTML = pla.gamesplayed; 
-      fl.innerHTML = pla.fouls; 
-      rcd.innerHTML = pla.redcards; 
-      ycd.innerHTML = pla.yellowcards; 
+      fnm.innerHTML = pla.firstname;
+      lnm.innerHTML = pla.lastname;
+      nme.innerHTML = pla.name;
+      pos.innerHTML = pla.position;
+      jer.innerHTML = pla.jerseynumber;
+      dob.innerHTML = pla.birthdate;
+      goa.innerHTML = pla.goals;
+      ast.innerHTML = pla.assists;
+      gpd.innerHTML = pla.gamesplayed;
+      fl.innerHTML = pla.fouls;
+      rcd.innerHTML = pla.redcards;
+      ycd.innerHTML = pla.yellowcards;
     })
 
     bBtn.addEventListener('click', function() {
-      location.href='./editplayerslist.html'; 
+      location.href='./editplayerslist.html';
     })
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
   </script>
 </body>
 </html>
 
-<!-- 
+<!--
 
-  added a go back button 
+  added a go back button
 
 -->

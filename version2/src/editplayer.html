@@ -15,7 +15,7 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout">Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="box1">
     <div class="borderBox1">
@@ -24,7 +24,7 @@
       <hr>
 
 
-      <!--  ** CHOOSING PROF PIC: WE MIGHT TAKE THIS OUT COMPLETELY. ** 
+      <!--  ** CHOOSING PROF PIC: WE MIGHT TAKE THIS OUT COMPLETELY. **
 
       <img src="../img/ronaldo.jpg" alt="Cristiano Ronaldo">
       <div>
@@ -97,66 +97,66 @@
   </div>
 
   <script>
-    var ros = JSON.parse(localStorage.getItem('roster')); 
-    var pla = JSON.parse(localStorage.getItem('playertoedit')); 
-    var sv = document.getElementById('saveBtn'); 
+    var ros = JSON.parse(localStorage.getItem('roster'));
+    var pla = JSON.parse(localStorage.getItem('playertoedit'));
+    var sv = document.getElementById('saveBtn');
     var dl = document.getElementById('backBtn');
 
-    var fnm = document.getElementById('dfn'); 
+    var fnm = document.getElementById('dfn');
     var lnm = document.getElementById('dln');
-    var nme = document.getElementById('dpn'); 
-    var pos = document.getElementById('dp'); 
-    var jer = document.getElementById('dj'); 
-    var dob = document.getElementById('dd'); 
-    var goa = document.getElementById('dg'); 
-    var ast = document.getElementById('da'); 
-    var gpd = document.getElementById('dgp'); 
-    var fl = document.getElementById('df'); 
-    var rcd = document.getElementById('dr'); 
-    var ycd = document.getElementById('dy'); 
+    var nme = document.getElementById('dpn');
+    var pos = document.getElementById('dp');
+    var jer = document.getElementById('dj');
+    var dob = document.getElementById('dd');
+    var goa = document.getElementById('dg');
+    var ast = document.getElementById('da');
+    var gpd = document.getElementById('dgp');
+    var fl = document.getElementById('df');
+    var rcd = document.getElementById('dr');
+    var ycd = document.getElementById('dy');
 
     window.addEventListener('DOMContentLoaded', function () {
-      fnm.innerHTML = pla.firstname; 
-      lnm.innerHTML = pla.lastname; 
-      nme.innerHTML = pla.name; 
-      pos.innerHTML = pla.position; 
-      jer.innerHTML = pla.jerseynumber; 
-      dob.innerHTML = pla.birthdate; 
-      goa.innerHTML = pla.goals; 
-      ast.innerHTML = pla.assists; 
-      gpd.innerHTML = pla.gamesplayed; 
-      fl.innerHTML = pla.fouls; 
-      rcd.innerHTML = pla.redcards; 
-      ycd.innerHTML = pla.yellowcards; 
+      fnm.innerHTML = pla.firstname;
+      lnm.innerHTML = pla.lastname;
+      nme.innerHTML = pla.name;
+      pos.innerHTML = pla.position;
+      jer.innerHTML = pla.jerseynumber;
+      dob.innerHTML = pla.birthdate;
+      goa.innerHTML = pla.goals;
+      ast.innerHTML = pla.assists;
+      gpd.innerHTML = pla.gamesplayed;
+      fl.innerHTML = pla.fouls;
+      rcd.innerHTML = pla.redcards;
+      ycd.innerHTML = pla.yellowcards;
     })
-    
+
     sv.addEventListener('click', function() {
       location.href='./viewplayer.html';
     })
 
     dl.addEventListener('click', function() {
-      location.href='./players.html'; 
+      location.href='./players.html';
     })
 
     sv.addEventListener('click', function() {
-      for(var s = 0; s < ros.length; s++) { 
+      for(var s = 0; s < ros.length; s++) {
         if(ros[s].jerseynumber == pla.jerseynumber && ros[s].name == pla.name) {
-          var currentPlyr = ros[s]; 
-          currentPlyr.firstname = fnm.innerHTML; 
-          currentPlyr.lastname = lnm.innerHTML; 
-          currentPlyr.name = nme.innerHTML; 
-          currentPlyr.position = pos.innerHTML; 
-          currentPlyr.jerseynumber = jer.innerHTML; 
-          currentPlyr.birthdate = dob.innerHTML; 
-          currentPlyr.goals = goa.innerHTML; 
-          currentPlyr.assists = ast.innerHTML; 
-          currentPlyr.gamesplayed = gpd.innerHTML; 
-          currentPlyr.fouls = fl.innerHTML; 
-          currentPlyr.redcards = rcd.innerHTML; 
-          currentPlyr.yellowcards = ycd.innerHTML; 
+          var currentPlyr = ros[s];
+          currentPlyr.firstname = fnm.innerHTML;
+          currentPlyr.lastname = lnm.innerHTML;
+          currentPlyr.name = nme.innerHTML;
+          currentPlyr.position = pos.innerHTML;
+          currentPlyr.jerseynumber = jer.innerHTML;
+          currentPlyr.birthdate = dob.innerHTML;
+          currentPlyr.goals = goa.innerHTML;
+          currentPlyr.assists = ast.innerHTML;
+          currentPlyr.gamesplayed = gpd.innerHTML;
+          currentPlyr.fouls = fl.innerHTML;
+          currentPlyr.redcards = rcd.innerHTML;
+          currentPlyr.yellowcards = ycd.innerHTML;
         }
       }
-      localStorage.setItem('roster', JSON.stringify(ros)); 
+      localStorage.setItem('roster', JSON.stringify(ros));
     })
 
     dl.addEventListener('click', function() {
@@ -165,8 +165,12 @@
           ros.splice(d, 1);
         }
       }
-      localStorage.setItem('roster', JSON.stringify(ros)); 
+      localStorage.setItem('roster', JSON.stringify(ros));
     })
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
   </script>
 
 </body>
@@ -174,7 +178,7 @@
 
 <!--
 
-changed onlclick location=href to an event listener 
+changed onlclick location=href to an event listener
 added first name and last name field to edit player page
 
  -->

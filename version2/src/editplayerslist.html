@@ -15,7 +15,7 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout">Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="container1">
     <div class="subcontainer">
@@ -44,35 +44,35 @@
       <h4 class="rostereditnotice">** Make sure to press save to keep all changes! **</h4>
       <input type="button" value="Save" id="editrosterbtn">
       <hr>
-      <input type="button" value="Go back" id="backBtn">      
+      <input type="button" value="Go back" id="backBtn">
     </div>
   </div>
 
   <script>
     var rArray = JSON.parse(localStorage.getItem('roster'));
-    var saveEditBtn = document.getElementById('editrosterbtn'); 
+    var saveEditBtn = document.getElementById('editrosterbtn');
     var goBackBtn = document.getElementById('backBtn');
 
     window.addEventListener('DOMContentLoaded', function () {
-      let index; 
-      index = localStorage.getItem("index"); 
+      let index;
+      index = localStorage.getItem("index");
       var tbl = document.getElementById('outputTable');
       for (var i = 0; i < rArray.length; i++) {
-        tbl.innerHTML += "<tr><td>" 
-        + rArray[i].jerseynumber 
-        + "</td><td>" + rArray[i].position 
-        + "</td><td><a href='#' class='es'>" + rArray[i].name 
-        + "</a></td><td class='gd' contenteditable='true'>" + rArray[i].goals 
-        + "</td><td class='ad' contenteditable='true'>" + rArray[i].assists 
-        + "</td><td class='fd' contenteditable='true'>" + rArray[i].fouls 
-        + "</td><td class='rd' contenteditable='true'>" + rArray[i].redcards 
-        + "</td><td class='yd' contenteditable='true'>" + rArray[i].yellowcards 
+        tbl.innerHTML += "<tr><td>"
+        + rArray[i].jerseynumber
+        + "</td><td>" + rArray[i].position
+        + "</td><td><a href='#' class='es'>" + rArray[i].name
+        + "</a></td><td class='gd' contenteditable='true'>" + rArray[i].goals
+        + "</td><td class='ad' contenteditable='true'>" + rArray[i].assists
+        + "</td><td class='fd' contenteditable='true'>" + rArray[i].fouls
+        + "</td><td class='rd' contenteditable='true'>" + rArray[i].redcards
+        + "</td><td class='yd' contenteditable='true'>" + rArray[i].yellowcards
         + "</td><td class='gpd' contenteditable='true'>" + rArray[i].gamesplayed + "</td></tr>";
       }
     })
-      
-    function afterLoad() { 
-      var cn = document.querySelectorAll("a.es"); 
+
+    function afterLoad() {
+      var cn = document.querySelectorAll("a.es");
       for(var x = 0; x < cn.length; x++) {
         (function(index) {
           cn[index].addEventListener('click', function(){
@@ -80,51 +80,55 @@
           });
         })(x);
         cn[x].addEventListener('click', function(){
-          location.href='./viewplayer.html'; 
+          location.href='./viewplayer.html';
         })
-      }    
-    }    
+      }
+    }
 
     saveEditBtn.addEventListener('click', function() {
 
-      var g = document.querySelectorAll("td.gd"); 
+      var g = document.querySelectorAll("td.gd");
       var a = document.querySelectorAll("td.ad");
-      var f = document.querySelectorAll("td.fd"); 
-      var r = document.querySelectorAll("td.rd"); 
-      var y = document.querySelectorAll("td.yd"); 
-      var gp = document.querySelectorAll("td.gpd");  
-      var newArray = []; 
+      var f = document.querySelectorAll("td.fd");
+      var r = document.querySelectorAll("td.rd");
+      var y = document.querySelectorAll("td.yd");
+      var gp = document.querySelectorAll("td.gpd");
+      var newArray = [];
 
       for(var z = 0; z < rArray.length; z++) {
         (function(index) {
-          var cuPl = rArray[index]; 
-          cuPl.goals = g[index].innerHTML; 
-          cuPl.assists = a[index].innerHTML; 
-          cuPl.fouls = f[index].innerHTML; 
-          cuPl.redcards = r[index].innerHTML; 
-          cuPl.yellowcards = y[index].innerHTML; 
-          cuPl.gamesplayed = gp[index].innerHTML; 
-          newArray.push(cuPl); 
+          var cuPl = rArray[index];
+          cuPl.goals = g[index].innerHTML;
+          cuPl.assists = a[index].innerHTML;
+          cuPl.fouls = f[index].innerHTML;
+          cuPl.redcards = r[index].innerHTML;
+          cuPl.yellowcards = y[index].innerHTML;
+          cuPl.gamesplayed = gp[index].innerHTML;
+          newArray.push(cuPl);
         })(z);
       }
-      localStorage.setItem('roster', JSON.stringify(newArray)); 
+      localStorage.setItem('roster', JSON.stringify(newArray));
     })
 
     saveEditBtn.addEventListener('click', function() {
-      location.href='./players.html'; 
+      location.href='./players.html';
     })
 
     goBackBtn.addEventListener('click', function() {
-      location.href='./players.html'; 
+      location.href='./players.html';
     })
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
 
   </script>
 </body>
 </html>
 
-<!-- 
+<!--
 
-added the position field in table header 
+added the position field in table header
 removed onclick function for save button
 added a go back button
 

@@ -17,7 +17,7 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout"> Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="box">
     <h2>Edit Game</h2>
@@ -37,5 +37,13 @@
       <input type="button" value="Delete Game">
     </form>
   </div>
+  <script>
+
+
+  
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
+  </script>
 </body>
 </html>

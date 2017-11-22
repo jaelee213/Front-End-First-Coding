@@ -18,7 +18,7 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout"> Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="box">
     <h2>Add Game</h2>
@@ -36,6 +36,14 @@
       <p><input type="radio" name="status" value="away">Away</p>
       <input type="submit" value="Add Game">
     </form>
+    <script>
+
+
+    
+      function logoutClean() {
+        localStorage.removeItem("user");
+      }
+    </script>
   </div>
 </body>
 </html>

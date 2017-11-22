@@ -15,7 +15,7 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout">Logout</a>
+    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="container1">
     <div class="subcontainer">
@@ -42,7 +42,7 @@
           </tbody>
         </table>
         <br>
-        <input type="button" onclick="location.href='./addplayer.html';" value="Add Player" id="addplayerbtn">        
+        <input type="button" onclick="location.href='./addplayer.html';" value="Add Player" id="addplayerbtn">
       </div>
     </div>
   </div>
@@ -53,19 +53,23 @@
       var rosArray = JSON.parse(localStorage.getItem('roster'));
 
       for (var i = 0; i < rosArray.length; i++) {
-        tbl.innerHTML += "<tr><td>" + rosArray[i].jerseynumber + "</td><td>" + rosArray[i].position + "</td><td>" 
-        + rosArray[i].name + "</td><td>" + rosArray[i].goals + "</td><td>" + rosArray[i].assists + "</td><td>" 
-        + rosArray[i].fouls + "</td><td>" + rosArray[i].redcards + "</td><td>" + rosArray[i].yellowcards + 
+        tbl.innerHTML += "<tr><td>" + rosArray[i].jerseynumber + "</td><td>" + rosArray[i].position + "</td><td>"
+        + rosArray[i].name + "</td><td>" + rosArray[i].goals + "</td><td>" + rosArray[i].assists + "</td><td>"
+        + rosArray[i].fouls + "</td><td>" + rosArray[i].redcards + "</td><td>" + rosArray[i].yellowcards +
           "</td><td>" + rosArray[i].gamesplayed + "</td></tr>";
       }
     })
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
   </script>
 
-<!-- 
+<!--
 
 added a position field to the table (realized didn't have one implementing addplayer.html)
-  
---> 
+
+-->
 
 
 </body>
