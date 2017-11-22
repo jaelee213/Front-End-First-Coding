@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- File Size: 2KB | Load Time: 7.0ms -->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../style/style.css">
+  <title>TeamWatch</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="./home.html" id="logo">TeamWatch</a>
+    <a href="./home.html">Home</a>
+    <a href="./gameschedule.html">Game</a>
+    <a href="./players.html">Roster</a>
+    <a href="./login.html" id="logout"> Logout</a>
+  </nav>
+  <div class="teamcontainer">
+    <h1 class="myteamnamehome">Team KongLeeKim</h1>
+	<hr>
+	<p id="teamtotalheader">Team Total Stats</p>
+	<table id="teamtotaltable">
+	  <tr>
+	    <th>Wins</th>
+		<th>Losses</th>
+		<th>Ties</th>
+	  </tr>
+	  <tr>
+	    <td>3</td>
+		<td>1</td>
+		<td>0</td>
+	  </tr>
+	</table>
+	<table id="teamgoaltable">
+	  <tr>
+	    <th>Total Goals Scored</th>
+		<th>Total Goals Given Up</th>
+	  </tr>
+	  <tr>
+	    <td>7</td>
+		<td>3</td>
+	  </tr>
+	</table>
+  </div>
+  <div class="gamecontainer">
+    <h1>Today's Game</h1>
+	<p id="matchname">Team KongLeeKim vs Team Green</p>
+	<p><span id="matchscore">0 : 0</span></p>
+	<p>11/15 Tue 7:00 PM</p>
+	<p>SD Petco Park</p>
+	<p>Home Game</p>
+	<input type="button" onclick="location.href='./viewgamestats.html';" value="View Stats" id="viewStatsBtn">    
+	<input type="button" onclick="location.href='./editgame.html';" value="Edit Game" id="editGameBtn">
+  </div>
+</body>
+</html>

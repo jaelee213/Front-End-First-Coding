@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!-- File Size: 1KB | Load Time: 10.6ms -->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../style/style.css">
+  <title>Edit Game</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="./home.html" id="logo">TeamWatch</a>
+    <a href="./home.html">Home</a>
+    <a href="./gameschedule.html">Game</a>
+    <a href="./players.html">Roster</a>
+    <a href="./login.html" id="logout"> Logout</a>
+  </nav>
+  <div class="box">
+    <h2>Edit Game</h2>
+    <form>
+      <p><label for="OppTeam">Opposing Team:</label></p>
+      <input type="text" id="OppTeam" name="OppTeam" value="Team Green">
+      <p><label for="gameDate">Date:</label></p>
+      <input type="date" id="gameDate" name="gameDate" value="2017-11-15">
+      <p><label for="gametime">Time:</label></p>
+      <input type="time" id="gametime" name="time" value="19:00">
+      <p><label for="location">Location:</label></p>
+      <input type="text" id="location" name="location" value="SD Petco Park">
+      <p><label>Status:</label></p>
+      <p><input type="radio" name="status" value="home">Home</p>
+      <p><input type="radio" name="status" value="away">Away</p>
+      <input type="submit" value="Edit Game">
+      <input type="button" value="Delete Game">
+    </form>
+  </div>
+</body>
+</html>
