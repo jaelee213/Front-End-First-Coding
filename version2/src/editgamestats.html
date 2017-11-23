@@ -17,35 +17,299 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
+    <a href="./login.html" id="logout"> Logout</a>
   </nav>
   <div class="viewgamestatscontainer">
 		<h1 class="vgsgameheader">TeamKongLeeKim</h1>
 		<h1 class="vgsgameheader">vs.</h1>
 		<h1 class="vgsgameheader">Team Blake</h1>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamscore()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamscore()">-</button> <span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppscore()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppscore()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamfoul()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamfoul()">-</button> <span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppfoul()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppfoul()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamred()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamred()">-</button> <span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppred()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppred()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamyellow()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamyellow()">-</button> <span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppyellow()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppyellow()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamshots()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamshots()">-</button> <span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppshots()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppshots()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamgoal()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamgoal()">-</button> <span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppgoal()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppgoal()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamcornerkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamcornerkicks()">-</button> <span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppcornerkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppcornerkicks()">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button> <span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span> <button type="button" class="incrgamestats">+</button><button type="button" class="incrgamestats">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamgoalkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamgoalkicks()">-</button> <span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppgoalkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppgoalkicks()">-</button></p>
 		<p><input type="button" onclick="location.href='./viewgamestats.html';" value="Save" id="egssaveBtn"></p>
+		<button onclick="test()">Test button</button>
   </div>
   <script>
-
-    function logoutClean() {
-      localStorage.removeItem("user");
+    function editgamestatsincrteamscore() {
+	  var oldChild = document.getElementById('myteamscorevgs').firstChild;
+  	  var oldNumber = Number(document.getElementById('myteamscorevgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamscorevgs').replaceChild(newChild, oldChild);
     }
+    function editgamestatsincrteamfoul() {
+	  var oldChild = document.getElementById('myteamfoulvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamfoulvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamfoulvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincrteamred() {
+	  var oldChild = document.getElementById('myteamredcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamredcardvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamredcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincrteamyellow() {
+	  var oldChild = document.getElementById('myteamyellowcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamyellowcardvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamyellowcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincrteamshots() {
+	  var oldChild = document.getElementById('myteamshotsongoalvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamshotsongoalvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamshotsongoalvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincrteamgoal() {
+	  var oldChild = document.getElementById('myteamgoalsvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamgoalsvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamgoalsvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincrteamcornerkicks() {
+	  var oldChild = document.getElementById('myteamcornerkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamcornerkicksvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamcornerkicksvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincrteamgoalkicks() {
+	  var oldChild = document.getElementById('myteamgoalkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamgoalkicksvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamgoalkicksvgs').replaceChild(newChild, oldChild);
+    }
+	/////////////// Opponent functions start here /////////////////////////
+    function editgamestatsincroppscore() {
+	  var oldChild = document.getElementById('oppteamscoresvgs').firstChild;
+  	  var oldNumber = Number(document.getElementById('oppteamscoresvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamscoresvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppfoul() {
+	  var oldChild = document.getElementById('oppteamfoulvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamfoulvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamfoulvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppred() {
+	  var oldChild = document.getElementById('oppteamredcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamredcardvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamredcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppyellow() {
+	  var oldChild = document.getElementById('oppteamyellowcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamyellowcardvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamyellowcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppshots() {
+	  var oldChild = document.getElementById('oppteamshotsongoalvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamshotsongoalvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamshotsongoalvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppgoal() {
+	  var oldChild = document.getElementById('oppteamgoalsvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamgoalsvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamgoalsvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppcornerkicks() {
+	  var oldChild = document.getElementById('oppteamcornerkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamcornerkicksvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamcornerkicksvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsincroppgoalkicks() {
+	  var oldChild = document.getElementById('oppteamgoalkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamgoalkicksvgs').innerHTML);
+	  var newNumber = oldNumber + 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamgoalkicksvgs').replaceChild(newChild, oldChild);
+    }
+	//////////////// Decrement functions start here //////////////////////////
+    function editgamestatsdecrteamscore() {
+	  var oldChild = document.getElementById('myteamscorevgs').firstChild;
+  	  var oldNumber = Number(document.getElementById('myteamscorevgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamscorevgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamfoul() {
+	  var oldChild = document.getElementById('myteamfoulvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamfoulvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamfoulvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamred() {
+	  var oldChild = document.getElementById('myteamredcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamredcardvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamredcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamyellow() {
+	  var oldChild = document.getElementById('myteamyellowcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamyellowcardvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamyellowcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamshots() {
+	  var oldChild = document.getElementById('myteamshotsongoalvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamshotsongoalvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamshotsongoalvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamgoal() {
+	  var oldChild = document.getElementById('myteamgoalsvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamgoalsvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamgoalsvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamcornerkicks() {
+	  var oldChild = document.getElementById('myteamcornerkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamcornerkicksvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamcornerkicksvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecrteamgoalkicks() {
+	  var oldChild = document.getElementById('myteamgoalkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('myteamgoalkicksvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('myteamgoalkicksvgs').replaceChild(newChild, oldChild);
+    }
+	/////////////// Opponent decr functions start here /////////////////////////
+    function editgamestatsdecroppscore() {
+	  var oldChild = document.getElementById('oppteamscoresvgs').firstChild;
+  	  var oldNumber = Number(document.getElementById('oppteamscoresvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamscoresvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppfoul() {
+	  var oldChild = document.getElementById('oppteamfoulvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamfoulvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamfoulvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppred() {
+	  var oldChild = document.getElementById('oppteamredcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamredcardvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamredcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppyellow() {
+	  var oldChild = document.getElementById('oppteamyellowcardvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamyellowcardvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamyellowcardvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppshots() {
+	  var oldChild = document.getElementById('oppteamshotsongoalvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamshotsongoalvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamshotsongoalvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppgoal() {
+	  var oldChild = document.getElementById('oppteamgoalsvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamgoalsvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamgoalsvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppcornerkicks() {
+	  var oldChild = document.getElementById('oppteamcornerkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamcornerkicksvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamcornerkicksvgs').replaceChild(newChild, oldChild);
+    }
+    function editgamestatsdecroppgoalkicks() {
+	  var oldChild = document.getElementById('oppteamgoalkicksvgs').firstChild;
+	  var oldNumber = Number(document.getElementById('oppteamgoalkicksvgs').innerHTML);
+	  var newNumber = oldNumber - 1;
+	  var newChild = document.createTextNode(String(newNumber));
+	  document.getElementById('oppteamgoalkicksvgs').replaceChild(newChild, oldChild);
+    }
+	function saveGameStats() {
+	  var editedTeamScore = document.getElementById('myteamscorevgs').innerHTML;
+	  var editedTeamFoul = document.getElementById('myteamfoulvgs').innerHTML;
+	  var editedTeamRedCard = document.getElementById('myteamredcardvgs').innerHTML;
+	  var editedTeamYellowCard = document.getElementById('myteamyellowcardvgs').innerHTML;
+	  var editedTeamShotsOnGoal = document.getElementById('myteamshotsongoalvgs').innerHTML;
+	  var editedTeamGoals = document.getElementById('myteamgoalsvgs').innerHTML;
+	  var editedTeamCornerKicks = document.getElementById('myteamcornerkicksvgs').innerHTML;
+	  var editedTeamGoalKicks = document.getElementById('myteamgoalkicksvgs').innerHTML;
+	  var editedOppScore = document.getElementById('oppteamscoresvgs').innerHTML;
+	  var editedOppFoul = document.getElementById('oppteamfoulvgs').innerHTML;
+	  var editedOppRedCard = document.getElementById('oppteamredcardvgs').innerHTML;
+	  var editedOppYellowCard = document.getElementById('oppteamyellowcardvgs').innerHTML;
+	  var editedOppShotsOnGoal = document.getElementById('oppteamshotsongoalvgs').innerHTML;
+	  var editedOppGoals = document.getElementById('oppteamgoalsvgs').innerHTML;
+	  var editedOppCornerKicks = document.getElementById('oppteamcornerkicksvgs').innerHTML;
+	  var editedOppGoalKicks = document.getElementById('oppteamgoalkicksvgs').innerHTML;
+	  localStorage.setItem('recentlyEditedTS', editedTeamScore);
+	  localStorage.setItem('recentlyEditedTF', editedTeamFoul);
+	  localStorage.setItem('recentlyEditedTRC', editedTeamRedCard);
+	  localStorage.setItem('recentlyEditedTYC', editedTeamYellowCard);
+	  localStorage.setItem('recentlyEditedTSOG', editedTeamShotsOnGoal);
+	  localStorage.setItem('recentlyEditedTG', editedTeamGoals);
+	  localStorage.setItem('recentlyEditedTCK', editedTeamCornerKicks);
+	  localStorage.setItem('recentlyEditedTGK', editedTeamGoalKicks);
+	  localStorage.setItem('recentlyEditedOS', editedOppScore);
+	  localStorage.setItem('recentlyEditedOF', editedOppFoul);
+	  localStorage.setItem('recentlyEditedORC', editedOppRedCard);
+	  localStorage.setItem('recentlyEditedOYC', editedOppYellowCard);
+	  localStorage.setItem('recentlyEditedOSOG', editedOppShotsOnGoal);
+	  localStorage.setItem('recentlyEditedOG', editedOppGoals);
+	  localStorage.setItem('recentlyEditedOCK', editedOppCornerKicks);
+	  localStorage.setItem('recentlyEditedOGK', editedOppGoalKicks);
+	}
+	document.getElementById('egssaveBtn').addEventListener('click', saveGameStats);
+
+	function test() {
+	  //localStorage.setItem('newestTest', document.getElementById('myteamscorevgs').innerHTML);
+	  alert('Hi');
+	}
   </script>
 </body>
 </html>

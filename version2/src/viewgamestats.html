@@ -17,36 +17,38 @@
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
     <a href="./players.html">Roster</a>
-    <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
+    <a href="./login.html" id="logout"> Logout</a>
   </nav>
   <div class="viewgamestatscontainer">
-		<input type="button" onclick="location.href='./editgamestats.html';" value="Edit" id="editgamestatsBtn"><br>
-		<h1 class="vgsgameheader">TeamKongLeeKim</h1>
-		<h1 class="vgsgameheader">vs.</h1>
-		<h1 class="vgsgameheader">Team Blake</h1>
-		<hr class="vgshr">
-		<p><span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span></p>
-		<hr class="vgshr">
-		<p><span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span></p>
+	<input type="button" onclick="location.href='./editgamestats.html';" value="Edit" id="editgamestatsBtn"><br>
+	  <h1 class="vgsgameheader">TeamKongLeeKim</h1>
+	  <h1 class="vgsgameheader">vs.</h1>
+	  <h1 class="vgsgameheader">Team Blake</h1>
+	  <hr class="vgshr">
+	  <p><span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span></p>
+	  <hr class="vgshr">
+	  <p><span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span></p>
   </div>
   <script>
-
-  
-    function logoutClean() {
-      localStorage.removeItem("user");
-    }
+    window.addEventListener('DOMContentLoaded', function() {
+	  /*var newChild = document.createTextNode(localStorage.getItem('recentlyEditedTS'));
+	  var oldChild = document.getElementById('myteamscorevgs').firstChild;
+	  document.getElementById('myteamscorevgs').replaceChild(newChild, oldChild);*/
+	  alert(localStorage.getItem('recentlyEditedTS'));
+	  document.getElementById('myteamscorevgs').innerHTML = 'Hi';
+	});
   </script>
 </body>
 </html>
