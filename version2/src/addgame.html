@@ -10,6 +10,64 @@
 
   <link rel="stylesheet" href="../style/style.css">
   <title>Add Game</title>
+  <!-- changes -->
+  <script>
+    var submitBtn = document.getElementById('addGameSubmitBtn');
+
+	submitBtn.addEventListener('click', function() {
+	  var theTeam= document.getElementById('OppTeam').value;
+	  var theDate = document.getElementById('gameDate').value;
+	  var theTime = document.getElementById('gametime').value;
+	  var theLocation = document.getElementById('location').value;
+	  var game = {};
+	  game.oppTeam = theTeam;
+	  game.date = theDate;
+	  game.time = theTime;
+	  game.location = theLocation;
+
+	  var gameList = JSON.parse(localStorage.getItem('games'));
+
+	  if (gameList) {
+	    gameList.push(game);
+		localStorage.setItem('games', JSON.stringify(gameList));
+	  }
+	  else {
+	  	var gameListInitialize = [game];
+		localStorage.setItem('games', JSON.stringify(gameListInitialize));
+	  }
+	});
+
+	function logoutClean() {
+      localStorage.removeItem("user");
+    }
+
+	/*function test() {
+	  var theTeam= document.getElementById('OppTeam').value;
+	  var theDate = document.getElementById('gameDate').value;
+	  var theTime = document.getElementById('gametime').value;
+	  var theLocation = document.getElementById('location').value;
+	  var game = {};
+	  game.oppTeam = theTeam;
+	  game.date = theDate;
+	  game.time = theTime;
+	  game.location = theLocation;
+
+	  var gameList = JSON.parse(localStorage.getItem('games'));
+
+	  if (gameList) {
+	    gameList.push(game);
+		localStorage.setItem('games', JSON.stringify(gameList));
+	  }
+	  else {
+	  	var gameListInitialize = [game];
+		localStorage.setItem('games', JSON.stringify(gameListInitialize));
+	  }
+	  var gameArray = JSON.parse(localStorage.getItem('games'));
+	  alert(gameArray[0].oppTeam);
+	  localStorage.removeItem('games');
+	}*/
+
+  </script>
 </head>
 
 <body>
@@ -21,8 +79,8 @@
     <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="box">
-    <h2>Add Game</h2>
-    <form>
+    <h2 id="testid">Add Game</h2>
+    <form id="addgameform">
       <p><label for="OppTeam">Opposing Team:</label></p>
       <input type="text" id="OppTeam" name="OppTeam" placeholder="Enter Team Name">
       <p><label for="gameDate">Date:</label></p>
@@ -32,18 +90,11 @@
       <p><label for="location">Location:</label></p>
       <input type="text" id="location" name="location" placeholder="Enter Location">
       <p><label>Status:</label></p>
-      <p><input type="radio" name="status" value="home">Home</p>
-      <p><input type="radio" name="status" value="away">Away</p>
-      <input type="submit" value="Add Game">
+      <p><input type="radio" name="status" value="0" id="addgamehome">Home</p>
+      <p><input type="radio" name="status" value="1" id="addgameaway">Away</p>
+      <input type="submit" value="Add Game" id="addGameSubmitBtn">
     </form>
-    <script>
-
-
-    
-      function logoutClean() {
-        localStorage.removeItem("user");
-      }
-    </script>
   </div>
+<!--  <button onclick="test()">Test button</button> -->
 </body>
 </html>

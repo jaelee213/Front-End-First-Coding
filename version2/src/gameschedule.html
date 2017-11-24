@@ -9,9 +9,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="../style/style.css">
   <title>Game Schedule</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var mainBody = document.body;
+      var gameArray = JSON.parse(localStorage.getItem('games'));
+	  if(!gameArray) alert('Not working');
+	  else alert('Working');
+
+      for (var x = 0; x < gameArray.length; x++) {
+        mainBody.innerHTML += "<div class='box0'> <h3>My Team vs " + gameArray[x].oppTeam + "</h3></div>";
+      }
+    });
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
+  </script>
 </head>
 
-<body onload="btnStatus()">
+<body>
   <nav class="navbar">
     <a href="./home.html" id="logo">TeamWatch</a>
     <a href="./home.html">Home</a>
@@ -20,7 +36,7 @@
     <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <input type="button" onclick="location.href='./addgame.html';" value="Add Game" id="addGameBtn">
-  <div class="box0">
+  <!-- <div class="box0">
     <h2>Previous Game</h2>
     <h3>My Team vs Team Blue</h3>
     <h4><mark>5:3</mark></h4>
@@ -46,22 +62,6 @@
     <p>SD Qualcomm Stadium</p>
     <p>Away Game</p>
     <input type="button" onclick="location.href='./editgame.html';" value="Edit Game" class="editGameBtn">
-  </div>
-
-  <script>
-    function btnStatus() {
-      var username = localStorage.getItem("user");
-
-      if(username != 'coach') {
-        document.getElementById('addGameBtn').style.display = 'none';
-        document.getElementById('editBtn1').style.display = 'none';
-        document.getElementById('editBtn2').style.display = 'none';
-      }
-    }
-
-    function logoutClean() {
-      localStorage.removeItem("user");
-    }
-  </script>
+  </div> -->
 </body>
 </html>
