@@ -11,7 +11,7 @@
   <title>Game Schedule</title>
 </head>
 
-<body>
+<body onload="btnStatus()">
   <nav class="navbar">
     <a href="./home.html" id="logo">TeamWatch</a>
     <a href="./home.html">Home</a>
@@ -49,8 +49,15 @@
   </div>
 
   <script>
+    function btnStatus() {
+      var username = localStorage.getItem("user");
 
-
+      if(username != 'coach') {
+        document.getElementById('addGameBtn').style.display = 'none';
+        document.getElementById('editBtn1').style.display = 'none';
+        document.getElementById('editBtn2').style.display = 'none';
+      }
+    }
 
     function logoutClean() {
       localStorage.removeItem("user");

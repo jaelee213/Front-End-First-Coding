@@ -11,7 +11,7 @@
   <title>TeamWatch</title>
 </head>
 
-<body>
+<body onload="btnStatus();">
   <nav class="navbar">
     <a href="./home.html" id="logo">TeamWatch</a>
     <a href="./home.html">Home</a>
@@ -57,9 +57,17 @@
 	<input type="button" onclick="location.href='./editgame.html';" value="Edit Game" id="editGameBtn">
   </div>
   <script>
-  function logoutClean() {
-    localStorage.removeItem("user");
-  }
+    function btnStatus() {
+      var user = localStorage.getItem("user");
+
+      if(user != 'coach') {
+        document.getElementById('editGameBtn').style.display = "none";
+      }
+    }
+
+    function logoutClean() {
+      localStorage.removeItem("user");
+    }
   </script>
 
 </body>

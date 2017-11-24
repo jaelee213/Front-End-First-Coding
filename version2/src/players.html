@@ -9,8 +9,7 @@
   <title>TeamWatch</title>
   </head>
 
-  <body onload="displayRoster()">
-  <nav class="navbar">
+  <body onload="btnStatus()">
     <a href="./home.html" id="logo">TeamWatch</a>
     <a href="./home.html">Home</a>
     <a href="./gameschedule.html">Game</a>
@@ -48,6 +47,7 @@
   </div>
 
   <script>
+
     window.addEventListener('DOMContentLoaded', function () {
       var tbl = document.getElementById('outputdata');
       var rosArray = JSON.parse(localStorage.getItem('roster'));
@@ -59,6 +59,15 @@
           "</td><td>" + rosArray[i].gamesplayed + "</td></tr>";
       }
     })
+
+    function editBtn() {
+      var username = localStorage.getItem("user");
+
+      if(username != 'coach') {
+        document.getElementById('editrosterbtn').style.display = 'none';
+        document.getElementById('addplayerbtn').style.display = 'none';
+      }
+    }
 
     function logoutClean() {
       localStorage.removeItem("user");
