@@ -7,7 +7,7 @@ body {
 .navbar {
   background-color: black;
   overflow: hidden;
-  border-bottom: 0.2rem solid white;  
+  border-bottom: 0.2rem solid white;
 }
 
 .navbar nav {
@@ -62,7 +62,7 @@ body {
 
 .subcontainer {
    background: white;
-   margin: 0 auto;  
+   margin: 0 auto;
    min-width: 90%;
    width: 90%;
 }
@@ -96,7 +96,7 @@ body {
 }
 
 #editrosterlink {
-  padding-top: 1rem;  
+  padding-top: 1rem;
   text-decoration: none;
 }
 
@@ -106,7 +106,7 @@ body {
 }
 
 .roster {
-  overflow: scroll; 
+  overflow: scroll;
 }
 
 .rostertable {
@@ -509,13 +509,13 @@ body {
   margin-bottom: 2rem;
 }
 
-.loginform input[type=text] {
+.loginform input {
   width: 75%;
   padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
 }
 
-.loginform input[type=text]:focus {
+.loginform input:focus {
   border: 0.2rem solid #a3c6ff;
 }
 
