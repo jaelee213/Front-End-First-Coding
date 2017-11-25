@@ -39,8 +39,33 @@
   </div>
   <script>
 
+     window.addEventListener('DOMContentLoaded', function() {
+      var gameArray = JSON.parse(localStorage.getItem('games'));
+      document.getElementById('OppTeam').value = gameArray[0].oppTeam;
+	  document.getElementById('gameDate').value = gameArray[0].date;
+	  document.getElementById('gametime').value = gameArray[0].time;
+	  document.getElementById('location').value = gameArray[0].location;
+    });
 
-  
+	function editGame() {
+	  var theTeam= document.getElementById('OppTeam').value;
+	  var theDate = document.getElementById('gameDate').value;
+	  var theTime = document.getElementById('gametime').value;
+	  var theLocation = document.getElementById('location').value;
+	  var game = {};
+	  game.oppTeam = theTeam;
+	  game.date = theDate;
+	  game.time = theTime;
+	  game.location = theLocation;
+
+	  var gameList = JSON.parse(localStorage.getItem('games'));
+
+	  if (gameList) {
+	    gameList.push(game);
+		localStorage.setItem('games', JSON.stringify(gameList));
+	  }
+	}
+	
     function logoutClean() {
       localStorage.removeItem("user");
     }

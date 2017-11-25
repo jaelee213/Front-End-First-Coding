@@ -11,63 +11,6 @@
   <link rel="stylesheet" href="../style/style.css">
   <title>Add Game</title>
   <!-- changes -->
-  <script>
-    var submitBtn = document.getElementById('addGameSubmitBtn');
-
-	submitBtn.addEventListener('click', function() {
-	  var theTeam= document.getElementById('OppTeam').value;
-	  var theDate = document.getElementById('gameDate').value;
-	  var theTime = document.getElementById('gametime').value;
-	  var theLocation = document.getElementById('location').value;
-	  var game = {};
-	  game.oppTeam = theTeam;
-	  game.date = theDate;
-	  game.time = theTime;
-	  game.location = theLocation;
-
-	  var gameList = JSON.parse(localStorage.getItem('games'));
-
-	  if (gameList) {
-	    gameList.push(game);
-		localStorage.setItem('games', JSON.stringify(gameList));
-	  }
-	  else {
-	  	var gameListInitialize = [game];
-		localStorage.setItem('games', JSON.stringify(gameListInitialize));
-	  }
-	});
-
-	function logoutClean() {
-      localStorage.removeItem("user");
-    }
-
-	/*function test() {
-	  var theTeam= document.getElementById('OppTeam').value;
-	  var theDate = document.getElementById('gameDate').value;
-	  var theTime = document.getElementById('gametime').value;
-	  var theLocation = document.getElementById('location').value;
-	  var game = {};
-	  game.oppTeam = theTeam;
-	  game.date = theDate;
-	  game.time = theTime;
-	  game.location = theLocation;
-
-	  var gameList = JSON.parse(localStorage.getItem('games'));
-
-	  if (gameList) {
-	    gameList.push(game);
-		localStorage.setItem('games', JSON.stringify(gameList));
-	  }
-	  else {
-	  	var gameListInitialize = [game];
-		localStorage.setItem('games', JSON.stringify(gameListInitialize));
-	  }
-	  var gameArray = JSON.parse(localStorage.getItem('games'));
-	  alert(gameArray[0].oppTeam);
-	  localStorage.removeItem('games');
-	}*/
-
-  </script>
 </head>
 
 <body>
@@ -95,13 +38,49 @@
       <input type="submit" value="Add Game" id="saveButton">
     </form>
     <script>
+      var submitBtn = document.getElementById('addGameSubmitBtn');
 
+  	  submitBtn.addEventListener('click', function() {
+	    var theTeam= document.getElementById('OppTeam').value;
+	    var theDate = document.getElementById('gameDate').value;
+	    var theTime = document.getElementById('gametime').value;
+	    var theLocation = document.getElementById('location').value;
+	    var isHomeGame = document.getElementById('addgamehome').checked;
+	    var game = {};
+	    game.oppTeam = theTeam;
+	    game.date = theDate;
+	    game.time = theTime;
+	    game.location = theLocation;
+  	    game.home = isHomeGame;
+	    game.myTeamScore = 0;
+	    game.myTeamFoul = 0;
+	    game.myTeamRed = 0;
+	    game.myTeamYellow = 0;
+	    game.myTeamShots = 0;
+	    game.myTeamGoals = 0;
+	    game.myTeamCornerKicks = 0;
+	    game.myTeamGoalKicks = 0;
+	    game.oppTeamScore = 0;
+	    game.oppTeamFoul = 0;
+	    game.oppTeamRed = 0;
+	    game.oppTeamYellow = 0;
+	    game.oppTeamShots = 0;
+	    game.oppTeamGoals = 0;
+	    game.oppTeamCornerKicks = 0;
+	    game.oppTeamGoalKicks = 0;
 
+  	    var gameList = JSON.parse(localStorage.getItem('games'));
 
-      
+	    if (gameList) {
+	      gameList.push(game);
+	      localStorage.setItem('games', JSON.stringify(gameList));
+	    }
+	    else {
+	  	  var gameListInitialize = [game];
+		  localStorage.setItem('games', JSON.stringify(gameListInitialize));
+	    }
+	  });
 
-
-    
       function logoutClean() {
         localStorage.removeItem("user");
       }

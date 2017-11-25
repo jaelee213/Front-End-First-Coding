@@ -42,12 +42,21 @@
 	  <p><span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span></p>
   </div>
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-	  /*var newChild = document.createTextNode(localStorage.getItem('recentlyEditedTS'));
-	  var oldChild = document.getElementById('myteamscorevgs').firstChild;
-	  document.getElementById('myteamscorevgs').replaceChild(newChild, oldChild);*/
-	  alert(localStorage.getItem('recentlyEditedTS'));
-	  document.getElementById('myteamscorevgs').innerHTML = 'Hi';
+
+	var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
+	var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
+	var gameArray = JSON.parse(localStorage.getItem('games'));
+	var exGame = gameArray[gameArray.length-1];
+	var myTeamStats = [exGame.myTeamScore, exGame.myTeamFoul, exGame.myTeamRed, exGame.myTeamYellow, exGame.myTeamShots, exGame.myTeamGoals, exGame.myTeamCornerKicks, exGame.myTeamGoalKicks];
+	var oppTeamStats = [exGame.oppTeamScore, exGame.oppTeamFoul, exGame.oppTeamRed, exGame.oppTeamYellow, exGame.oppTeamShots, exGame.oppTeamGoals, exGame.oppTeamCornerKicks, exGame.oppTeamGoalKicks];
+
+	window.addEventListener('DOMContentLoaded', function() {
+	  for (var k = 0; k < teamSpanIdArray.length; k++) {
+	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
+		teamCurrStat.innerHTML = myTeamStats[k];
+		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
+		oppCurrStat.innerHTML = oppTeamStats[k];
+	  }
 	});
 
     function logoutClean() {
