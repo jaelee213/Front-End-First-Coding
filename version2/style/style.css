@@ -167,6 +167,7 @@ body {
   width: 92%;
   color: white;
   margin-left: 3%;
+  margin-top: 0.5rem;
   background-color: #007BFF;
 }
 
@@ -632,6 +633,20 @@ body {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 3rem;
+  margin-bottom: 2.5rem;
+  color: white;
+  background-color: #17A2B8;
+  border: 0.1rem solid #17A2B8;
+  border-radius: 0.5rem;
+}
+
+#addPracBtn {
+  width: 80%;
+  padding: 0.25rem;
+  font-size: 1.5rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 0rem;
   margin-bottom: 2.5rem;
   color: white;
   background-color: #17A2B8;
