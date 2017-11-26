@@ -93,22 +93,26 @@
         if( (glist[g].opponentname == gam.opponentname) 
         && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
           
-					var gm = glist[g]; 
+					var gm = {};
 
-					gm.stats.mygoals = myteamscorevgs.innerHTML; 
-					gm.stats.opponentgoals = oppteamscoresvgs.innerHTML;
-					gm.stats.myfouls = myteamfoulvgs.innerHTML; 
-					gm.stats.opponentfouls = oppteamfoulvgs.innerHTML; 
-					gm.stats.myredcards = myteamredcardvgs.innerHTML; 
-					gm.stats.opponentredcards = oppteamredcardvgs.innerHTML;
-					gm.stats.myyellowcards = myteamyellowcardvgs.innerHTML; 
-					gm.stats.opponentyellowcards = oppteamyellowcardvgs.innerHTML; 
-					gm.stats.myshotsongoal = myteamshotsongoalvgs.innerHTML; 
-					gm.stats.opponentshotsongoal = oppteamshotsongoalvgs.innerHTML; 
-					gm.stats.mycornerkicks = myteamcornerkicksvgs.innerHTML; 
-					gm.stats.opponentcornerkicks = oppteamcornerkicksvgs.innerHTML; 
-					gm.stats.mygoalkicks = myteamgoalkicksvgs.innerHTML; 
-					gm.stats.opponentgoalkicks = oppteamgoalkicksvgs.innerHTML; 
+alert("STORING CHANGES:" + myteamscorevgs.innerHTML); 
+
+					gm.mygoals = myteamscorevgs.innerHTML; 
+					gm.opponentgoals = oppteamscoresvgs.innerHTML;
+					gm.myfouls = myteamfoulvgs.innerHTML; 
+					gm.opponentfouls = oppteamfoulvgs.innerHTML; 
+					gm.myredcards = myteamredcardvgs.innerHTML; 
+					gm.opponentredcards = oppteamredcardvgs.innerHTML;
+					gm.myyellowcards = myteamyellowcardvgs.innerHTML; 
+					gm.opponentyellowcards = oppteamyellowcardvgs.innerHTML; 
+					gm.myshotsongoal = myteamshotsongoalvgs.innerHTML; 
+					gm.opponentshotsongoal = oppteamshotsongoalvgs.innerHTML; 
+					gm.mycornerkicks = myteamcornerkicksvgs.innerHTML; 
+					gm.opponentcornerkicks = oppteamcornerkicksvgs.innerHTML; 
+					gm.mygoalkicks = myteamgoalkicksvgs.innerHTML; 
+					gm.opponentgoalkicks = oppteamgoalkicksvgs.innerHTML; 
+
+					glist[g].stats = gm;
 					
         }
       }
