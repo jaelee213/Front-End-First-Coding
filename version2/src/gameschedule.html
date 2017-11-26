@@ -24,7 +24,7 @@
   <input type="button" onclick="location.href='./addpractice.html';" value="Add Practice" id="addPracBtn">
 
 
-  <output id="outputgames">
+  <output id="outputgames" onload="afterLoad()">
   </output>
 
 
@@ -63,18 +63,49 @@
         }
 
         else if(todayDate.setHours(0, 0, 0, 0) < compareDate.setHours(0, 0, 0, 0)) {
-          disGam.innerHTML += "<div class='box0'><h2>Next Game: " + gArray[i].date 
+          disGam.innerHTML += "<div class='box0'><h2>Upcoming Game: " + gArray[i].date 
           + "</h2><h3>" + myname + " vs " + gArray[i].opponentname 
           + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
           + "</p><p>" + gArray[i].location 
           + "</p><p>" + gArray[i].status 
           + "</p><input type='button' value='Edit Game' class='editGameBtn'></div>"; 
-          break; 
         }
 
       }
     })
     
+
+    function afterLoad() {
+      var editButton = document.querySelectorAll("input.editGameBtn");
+      var viewButton = document.querySelectorAll("input.viewStatsBtn");
+
+      for(var x = 0; x < viewButton.length; x++) {
+        (function(index) {
+          viewButton[index].addEventListener('click', function(){
+            localStorage.setItem('gametoview', JSON.stringify(gArray[index]));
+          });
+        })(x);
+        viewButton[x].addEventListener('click', function(){
+          location.href='./viewgamestats.html';
+        })
+      }
+
+      var eLength = viewButton.length - 1;
+
+      for(var y = 0; y < editButton.length; y++) {
+        (function(index) {
+          editButton[index].addEventListener('click', function(){
+            localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length + index)]));
+          });
+        })(y);
+        editButton[y].addEventListener('click', function(){
+          location.href='./editgame.html';
+        })
+      }
+    }
+
+
+
     function btnStatus() {
       var username = localStorage.getItem("user");
       if(username != 'coach') {
