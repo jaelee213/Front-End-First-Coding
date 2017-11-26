@@ -24,61 +24,63 @@
 		<h1 class="vgsgameheader">vs.</h1>
 		<h1 class="vgsgameheader">Team Blake</h1>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamscore()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamscore()">-</button> <span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppscore()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppscore()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamscorevgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamscorevgs')">-</button> <span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span> <button type="button" class="incrgamestats" onclick="incr('oppteamscoresvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamscoresvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamfoul()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamfoul()">-</button> <span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppfoul()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppfoul()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamfoulvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamfoulvgs')">-</button> <span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span> <button type="button" class="incrgamestats" onclick="incr('oppteamfoulvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamfoulvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamred()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamred()">-</button> <span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppred()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppred()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamredcardvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamredcardvgs')">-</button> <span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span> <button type="button" class="incrgamestats" onclick="incr('oppteamredcardvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamredcardvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamyellow()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamyellow()">-</button> <span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppyellow()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppyellow()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamyellowcardvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamyellowcardvgs')">-</button> <span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span> <button type="button" class="incrgamestats" onclick="incr('oppteamyellowcardvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamyellowcardvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamshots()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamshots()">-</button> <span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppshots()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppshots()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamshotsongoalvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamshotsongoalvgs')">-</button> <span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span> <button type="button" class="incrgamestats" onclick="incr('oppteamshotsongoalvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamshotsongoalvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamgoal()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamgoal()">-</button> <span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppgoal()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppgoal()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamgoalsvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamgoalsvgs')">-</button> <span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span> <button type="button" class="incrgamestats" onclick="incr('oppteamgoalsvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamgoalsvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamcornerkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamcornerkicks()">-</button> <span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppcornerkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppcornerkicks()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamcornerkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamcornerkicksvgs')">-</button> <span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span> <button type="button" class="incrgamestats" onclick="incr('oppteamcornerkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamcornerkicksvgs')">-</button></p>
 		<hr class="vgshr">
-		<p><button type="button" class="incrgamestats" onclick="editgamestatsincrteamgoalkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecrteamgoalkicks()">-</button> <span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span> <button type="button" class="incrgamestats" onclick="editgamestatsincroppgoalkicks()">+</button><button type="button" class="incrgamestats" onclick="editgamestatsdecroppgoalkicks()">-</button></p>
+		<p><button type="button" class="incrgamestats" onclick="incr('myteamgoalkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamgoalkicksvgs')">-</button> <span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span> <button type="button" class="incrgamestats" onclick="incr('oppteamgoalkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamgoalkicksvgs')">-</button></p>
 		<p><input type="button" onclick="location.href='./viewgamestats.html';" value="Save" id="egssaveBtn"></p>
-		<button onclick="test()">Test button</button>
   </div>
   <script>
 
-	var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
-	var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
-	var gameArray = JSON.parse(localStorage.getItem('games'));
-	var exGame = gameArray[gameArray.length-1];
-	var myTeamStats = [exGame.myTeamScore, exGame.myTeamFoul, exGame.myTeamRed, exGame.myTeamYellow, exGame.myTeamShots, exGame.myTeamGoals, exGame.myTeamCornerKicks, exGame.myTeamGoalKicks];
-	var oppTeamStats = [exGame.oppTeamScore, exGame.oppTeamFoul, exGame.oppTeamRed, exGame.oppTeamYellow, exGame.oppTeamShots, exGame.oppTeamGoals, exGame.oppTeamCornerKicks, exGame.oppTeamGoalKicks];
+  	var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
+  	var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
+  	var gameArray = JSON.parse(localStorage.getItem('games'));
+  	var exGame = gameArray[gameArray.length-1];
+  	var myTeamStats = [exGame.myTeamScore, exGame.myTeamFoul, exGame.myTeamRed, exGame.myTeamYellow, exGame.myTeamShots, exGame.myTeamGoals, exGame.myTeamCornerKicks, exGame.myTeamGoalKicks];
+  	var oppTeamStats = [exGame.oppTeamScore, exGame.oppTeamFoul, exGame.oppTeamRed, exGame.oppTeamYellow, exGame.oppTeamShots, exGame.oppTeamGoals, exGame.oppTeamCornerKicks, exGame.oppTeamGoalKicks];
 
-	window.addEventListener('DOMContentLoaded', function() {
-	  for (var k = 0; k < teamSpanIdArray.length; k++) {
-	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
-		teamCurrStat.innerHTML = myTeamStats[k];
-		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
-		oppCurrStat.innerHTML = oppTeamStats[k];
-	  }
-	});
+  	window.addEventListener('DOMContentLoaded', function() {
+  	  for (var k = 0; k < teamSpanIdArray.length; k++) {
+  	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
+  		teamCurrStat.innerHTML = myTeamStats[k];
+  		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
+  		oppCurrStat.innerHTML = oppTeamStats[k];
+  	  }
+  	});
 
-	function incr(spanId) {
-	  var currStat = document.getElementById(spanId);
-	  var newNum = Number(currStat.innerHTML) + 1;
-	  currStat.innerHTML = newNum;
-	}
+  	function incr(spanId) {
+  	  var currStat = document.getElementById(spanId);
+  	  var newNum = Number(currStat.innerHTML) + 1;
+  	  currStat.innerHTML = newNum;
+  	}
 
-	function decr(spanId) {
-	  var currStat = document.getElementById(spanId);
-	  var newNum = Number(currStat.innerHTML) - 1;
-	  currStat.innerHTML = newNum;
-	}
+  	function decr(spanId) {
+  	  var currStat = document.getElementById(spanId);
+  	  var newNum = Number(currStat.innerHTML) - 1;
+      if (newNum < 0) {
+        newNum = 0;
+      }
+  	  currStat.innerHTML = newNum;
+  	}
 
-	egssaveBtn.addEventListener('click', function () {
-	  for (var m = 0; m < myTeamStats.length; m++) {
-	    myTeamStats[m] = document.getElementById(teamSpanIdArray[m]).innerHTML;
-		oppTeamStats[m] = document.getElementById(oppSpanIdArray[m]).innerHTML;
-	  }
-	  gameArray.push(exGame);
-	});
+  	egssaveBtn.addEventListener('click', function () {
+  	  for (var m = 0; m < myTeamStats.length; m++) {
+  	    myTeamStats[m] = document.getElementById(teamSpanIdArray[m]).innerHTML;
+  		oppTeamStats[m] = document.getElementById(oppSpanIdArray[m]).innerHTML;
+  	  }
+  	  gameArray.push(exGame);
+  	});
 
     function logoutClean() {
       localStorage.removeItem("user");
