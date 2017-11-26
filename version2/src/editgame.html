@@ -108,8 +108,11 @@
       }
 
       for(var g = 0; g < glist.length; g++) {
+        var gdate = glist[g].date; 
+        var gadate = game.date; 
         if( (glist[g].opponentname == game.opponentname) 
-        && (new Date(glist[g].date + ' ' + glist[g].time) == (new Date(game.date + ' ' + game.time)))) {
+        && (new Date(gdate.setHours(0, 0, 0, 0)) == (new Date(gadate.setHours(0, 0, 0, 0))))
+        && (glist[g].time == game.time)) {
 
           game = glist[g]; 
           game.opponentname = ot.value; 
@@ -127,7 +130,8 @@
     deletebutton.addEventListener('click', function(){ 
       for(var g = 0; g < glist.length; g++) {
         if( (glist[g].opponentname == game.opponentname) 
-        && (new Date(glist[g].date + ' ' + glist[g].time) == (new Date(game.date + ' ' + game.time)))) {
+        && (new Date(gdate.setHours(0, 0, 0, 0)) == (new Date(gadate.setHours(0, 0, 0, 0))))
+        && (glist[g].time == game.time)) {
           glist.splice(g, 1); 
           localStorage.setItem('games', JSON.stringify(glist));
         }
