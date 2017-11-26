@@ -45,9 +45,15 @@
     //alert(document.cookie);
 
     localStorage.setItem("user",user);
-    localStorage.setItem("myteamname", "KongLeeKim");
     return true;
   }
+
+  var liBtn = document.getElementById('loginsubmit'); 
+
+  liBtn.addEventListener('click', function() {
+    localStorage.setItem("myteamname", "KongLeeKim");
+  })
+
   </script>
 
 

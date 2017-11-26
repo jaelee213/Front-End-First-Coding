@@ -57,6 +57,8 @@
       var tod = document.getElementById('timeofdayradio').value;
       var gTime = document.getElementById('gametime').value;
 
+alert('TOD value is: ' + tod); 
+
       var game = {}; 
 
       game.opponentname = document.getElementById('opponentteamname').value; 
@@ -65,7 +67,7 @@
       if(tod == "am") {
         gTime = gTime.concat(" am");
       }
-      else {
+      if(tod == "pm") {
         gTime = gTime.concat(" pm"); 
       }
 
