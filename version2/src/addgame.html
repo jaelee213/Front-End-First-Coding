@@ -54,6 +54,8 @@
     var tod = document.getElementById('timeofdayradio').value;
     var gTime = document.getElementById('gametime').value;
 
+alert("Before everything, gTime is " + gTime);
+
     sButton.addEventListener('click', function() {
 
       var game = {}; 
@@ -62,10 +64,10 @@
       game.date = document.getElementById('gamedate').value; 
 
       if(tod == "am") {
-        gTime.concat(" am");
+        gTime = gTime.concat(" am");
       }
       else {
-        gTime.concat(" pm"); 
+        gTime = gTime.concat(" pm"); 
       }
 
       game.time = gTime; 
