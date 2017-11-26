@@ -46,7 +46,8 @@
     var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
     var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
     var gameArray = JSON.parse(localStorage.getItem('games'));
-    var game = JSON.parse(localStorage.getItem('gamestattoedit'));
+    var gam = JSON.parse(localStorage.getItem('gamestattoedit'));
+		var game = gam.stats;
     var myTeamStats = [game.myscore, game.myfoul, game.myredcard, game.myyellowcard, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
     var oppTeamStats = [game.opponentscore, game.opponentfoul, game.opponentredcard, game.opponentyellowcard, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
 
