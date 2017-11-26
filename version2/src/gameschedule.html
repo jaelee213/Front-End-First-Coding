@@ -79,26 +79,36 @@
       var editButton = document.querySelectorAll("input.editGameBtn");
       var viewButton = document.querySelectorAll("input.viewStatsBtn");
 
+alert("gArray length: " + gArray.length); 
+
       for(var x = 0; x < viewButton.length; x++) {
         (function(index) {
           viewButton[index].addEventListener('click', function(){
             localStorage.setItem('gametoview', JSON.stringify(gArray[index]));
+
+alert("stored opponent name: " + gArray[index].opponentname);
+alert("index: " + index); 
+
           });
         })(x);
-        viewButton[x].addEventListener('click', function(){
-          location.href='./viewgamestats.html';
-        })
+        //viewButton[x].addEventListener('click', function(){
+          //location.href='./viewgamestats.html';
+        //})
       }
 
       for(var y = 0; y < editButton.length; y++) {
         (function(index) {
           editButton[index].addEventListener('click', function(){
             localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length - index)]));
+          
+alert("stored opponent name: " + gArray[gArray.length - (editButton.length - index)].opponentname);
+alert("index: " + index); 
+
           });
         })(y);
-        editButton[y].addEventListener('click', function(){
-          location.href='./editgame.html';
-        })
+        //editButton[y].addEventListener('click', function(){
+          //location.href='./editgame.html';
+        //})
       }
     }
 

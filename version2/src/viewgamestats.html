@@ -21,25 +21,25 @@
   </nav>
   <div class="viewgamestatscontainer">
 	<input type="button" onclick="location.href='./editgamestats.html';" value="Edit" id="editgamestatsBtn"><br>
-	  <h1 class="vgsgameheader">TeamKongLeeKim</h1>
+	  <h1 class="vgsgameheader" id="myteam"></h1>
 	  <h1 class="vgsgameheader">vs.</h1>
-	  <h1 class="vgsgameheader">Team Blake</h1>
+	  <h1 class="vgsgameheader" id="oppteam"></h1>
 	  <hr class="vgshr">
-	  <p><span id="	">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span></p>
+	  <p><span id="myteamscorevgs"></span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span></p>
+	  <p><span id="myteamfoulvgs"></span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamredcardvgs">0</span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs">2</span></p>
+	  <p><span id="myteamredcardvgs"></span> <span class="vgsstats">Red Card</span> <span id="oppteamredcardvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamyellowcardvgs">1</span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs">1</span></p>
+	  <p><span id="myteamyellowcardvgs"></span> <span class="vgsstats">Yellow Card</span> <span id="oppteamyellowcardvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamshotsongoalvgs">4</span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs">4</span></p>
+	  <p><span id="myteamshotsongoalvgs"></span> <span class="vgsstats">Shots on Goal</span> <span id="oppteamshotsongoalvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamgoalsvgs">2</span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs">5</span></p>
+	  <p><span id="myteamgoalsvgs"></span> <span class="vgsstats">Goals</span> <span id="oppteamgoalsvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamcornerkicksvgs">3</span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs">6</span></p>
+	  <p><span id="myteamcornerkicksvgs"></span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs"></span></p>
 	  <hr class="vgshr">
-	  <p><span id="myteamgoalkicksvgs">9</span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs">7</span></p>
+	  <p><span id="myteamgoalkicksvgs"></span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs"></span></p>
   </div>
   <script>
 
@@ -64,6 +64,12 @@
 				var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
 				oppCurrStat.innerHTML = oppTeamStats[k];
   	  }
+
+			var my = document.getElementById('myteam'); 
+			var their = document.getElementById('oppteam');
+
+			my.innerHTML = localStorage.getItem('myteamname');
+			their.innerHTML = game.opponentname;
   	});
 
     function logoutClean() {
