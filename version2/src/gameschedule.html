@@ -90,12 +90,10 @@
         })
       }
 
-      var eLength = viewButton.length - 1;
-
       for(var y = 0; y < editButton.length; y++) {
         (function(index) {
           editButton[index].addEventListener('click', function(){
-            localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length + index)]));
+            localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length - index)]));
           });
         })(y);
         editButton[y].addEventListener('click', function(){
