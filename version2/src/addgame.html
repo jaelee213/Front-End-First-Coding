@@ -35,15 +35,16 @@
       <p class="addgamenotice"><em>For the time, please put it in the format: hh:mm (i.e. 11:21) and then select am/pm below.</em></p>
       <input type="time" id="gametime" name="time">
       <br>
-      <p><input type="radio" name="timeofday" value="am" id="timeofdayradio">AM</p>
-      <p><input type="radio" name="timeofday" value="pm" id="timeofdayradio">PM</p>
+      <p><label>Time of Day:</label></p>
+      <input type="radio" name="tofday" value="day" id="timeofdayradio">A.M.</p>
+      <p><input type="radio" name="tofday" value="night" id="timeofdayradio">P.M.</p>
       <br>
       <p><label for="location">Location:</label></p>
       <input type="text" id="gamelocation" name="location" placeholder="Enter Location">
       <br>
       <p><label>Status:</label></p>
-      <p><input type="radio" name="status" value="Home" id="homeawaystatus">Home</p>
-      <p><input type="radio" name="status" value="Away" id="homeawaystatus">Away</p>
+      <input type="radio" name="status" value="Home" id="homeawaystatus">Home<br>
+      <input type="radio" name="status" value="Away" id="homeawaystatus">Away<br>
       <input type="submit" value="Add Game" id="saveButton">
 		</form>
 	</div>
@@ -54,30 +55,24 @@
 
     sButton.addEventListener('click', function() {
      
-      var tod = document.getElementById('timeofdayradio').value;
+      var tod = document.querySelector('input[name=tofday]:checked').value; 
       var gTime = document.getElementById('gametime').value;
-
-alert('TOD value is: ' + tod); 
 
       var game = {}; 
 
       game.opponentname = document.getElementById('opponentteamname').value; 
       game.date = document.getElementById('gamedate').value; 
 
-      if(tod == "am") {
+      if(tod == "day") {
         gTime = gTime.concat(" am");
       }
-      if(tod == "pm") {
+      if(tod == "night") {
         gTime = gTime.concat(" pm"); 
       }
 
       game.time = gTime; 
-
-
-      alert("Time stored is " + gTime);
-
       game.location = document.getElementById('gamelocation').value;
-      game.status = document.getElementById('homeawaystatus').value;
+      game.status = document.querySelector('input[name=status]:checked').value; 
       game.finished = false;
       game.won = false; 
 
