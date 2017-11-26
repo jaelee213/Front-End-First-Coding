@@ -50,23 +50,7 @@
   </div>
 
   <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', function() {
-      var mainBody = document.body;
-      var gameArray = JSON.parse(localStorage.getItem('games'));
-      for (var x = 0; x < gameArray.length; x++) {
-	    var homeStatus = gameArray[x].home;
-		if (homeStatus) {
-		  var homeString = 'Home Game';
-		}
-		else {
-		  var homeString = 'Away Game';
-		}
-        mainBody.innerHTML += "<div class='box0'> <h3>My Team vs " + gameArray[x].oppTeam + "</h3><h4><mark>" + gameArray[x].myTeamScore + ":" + gameArray[x].oppTeamScore + "</mark></h4>" +
-		"<p>" + gameArray[x].date + "</p><p>" + gameArray[x].time + "</p><p>" + gameArray[x].location + "</p>" +
-		"<p>" + homeString + "</p><input type='button' onclick='location.href='./viewgamestats.html';' value='View Stats' class='viewStatsBtn'>"+
-		"<input type='button' onclick='location.href='./editgame.html';' value='Edit Game' class='editGameBtn'></div>";
-      }
-    });
+
 
     function btnStatus() {
       var username = localStorage.getItem("user");
