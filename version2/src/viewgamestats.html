@@ -25,7 +25,7 @@
 	  <h1 class="vgsgameheader">vs.</h1>
 	  <h1 class="vgsgameheader" id="oppteam"></h1>
 	  <hr class="vgshr">
-	  <p><span id="mygoals"></span> <span class="vgsstats">Score</span> <span id="theirgoals"></span></p>
+	  <p><span id="myscore"></span> <span class="vgsstats">Score</span> <span id="theirscore"></span></p>
 	  <hr class="vgshr">
 	  <p><span id="myfouls"></span> <span class="vgsstats">Foul</span> <span id="theirfouls"></span></p>
 	  <hr class="vgshr">
@@ -54,6 +54,8 @@
 			my.innerHTML = localStorage.getItem('myteamname');
 			their.innerHTML = game.opponentname;
 
+			var ms = document.getElementById('myscore'); 
+			var ts = document.getElementById('theirscore');
 			var mg = document.getElementById('mygoals'); 
 			var tg = document.getElementById('theirgoals');
 			var mf = document.getElementById('myfouls'); 
@@ -69,6 +71,8 @@
 			var mgk = document.getElementById('mygoalkicks'); 
 			var tgk = document.getElementById('theirgoalkicks');
 
+			ms.innerHTML = stats.mygoals; 
+			ts.innerHTML = stats.opponentgoals; 
 			mg.innerHTML = stats.mygoals; 
 			tg.innerHTML = stats.opponentgoals;
 			mf.innerHTML = stats.myfouls;
