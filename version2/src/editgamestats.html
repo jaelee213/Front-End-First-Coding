@@ -20,9 +20,9 @@
     <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="viewgamestatscontainer">
-		<h1 class="vgsgameheader">TeamKongLeeKim</h1>
+		<h1 class="vgsgameheader" id="myteam"></h1>
 		<h1 class="vgsgameheader">vs.</h1>
-		<h1 class="vgsgameheader">Team Blake</h1>
+		<h1 class="vgsgameheader" id="theirteam"></h1>
 		<hr class="vgshr">
 		<p><button type="button" class="incrgamestats" onclick="incr('myteamscorevgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamscorevgs')">-</button> <span id="myteamscorevgs"></span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs"></span> <button type="button" class="incrgamestats" onclick="incr('oppteamscoresvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamscoresvgs')">-</button></p>
 		<hr class="vgshr">
@@ -51,6 +51,9 @@
     var myTeamStats = [game.myscore, game.myfoul, game.myredcard, game.myyellowcard, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
     var oppTeamStats = [game.opponentscore, game.opponentfoul, game.opponentredcard, game.opponentyellowcard, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
 
+		var mt = document.getElementById('myteam'); 
+		var tt = document.getElementById('theirteam'); 
+
   	window.addEventListener('DOMContentLoaded', function() {
   	  for (var k = 0; k < teamSpanIdArray.length; k++) {
   	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
@@ -58,6 +61,10 @@
   		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
   		oppCurrStat.innerHTML = oppTeamStats[k];
   	  }
+
+			mt.innerHTML = localStorage.getItem('myteamname'); 
+			tt.innerHTML = gam.opponentname;
+
   	});
 
   	function incr(spanId) {
