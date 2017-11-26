@@ -114,15 +114,19 @@
         if( (glist[g].opponentname == game.opponentname) 
         && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
 
-          game = glist[g]; 
-          game.opponentname = ot.value; 
-          game.date = d.value; 
-          game.time = gTime;
-          game.status = document.querySelector('input[name=status]:checked').value; 
-          game.tod = tod; 
-          game.location = l.value;
-          
+          var cgame = glist[g];
+          cgame.opponentname = ot.value; 
+          cgame.date = d.value; 
+          cgame.time = gTime;
+          cgame.status = document.querySelector('input[name=status]:checked').value; 
+          cgame.tod = tod; 
+          cgame.location = l.value;
+
 alert("going to update: " + glist[g].opponentname + " game");
+
+          glist.sort(function(a, b) {
+		        return new Date(a.date + ' ' + a.time) - new Date(b.date + ' ' + b.time);
+          });
 
           localStorage.setItem('games', JSON.stringify(glist));
         }
