@@ -43,21 +43,21 @@
   </div>
   <script>
 
-	var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
-	var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
-	var gameArray = JSON.parse(localStorage.getItem('games'));
-	var exGame = gameArray[gameArray.length-1];
-	var myTeamStats = [exGame.myTeamScore, exGame.myTeamFoul, exGame.myTeamRed, exGame.myTeamYellow, exGame.myTeamShots, exGame.myTeamGoals, exGame.myTeamCornerKicks, exGame.myTeamGoalKicks];
-	var oppTeamStats = [exGame.oppTeamScore, exGame.oppTeamFoul, exGame.oppTeamRed, exGame.oppTeamYellow, exGame.oppTeamShots, exGame.oppTeamGoals, exGame.oppTeamCornerKicks, exGame.oppTeamGoalKicks];
+  	var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
+  	var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
+  	var gameArray = JSON.parse(localStorage.getItem('games'));
+    var game = gameArray[gameArray.length - 1];
+    var myTeamStats = [game.myscore, game.myfoul, game.myredcard, game.myyellowcard, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
+    var oppTeamStats = [game.opponentscore, game.opponentfoul, game.opponentredcard, game.opponentyellowcard, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
 
-	window.addEventListener('DOMContentLoaded', function() {
-	  for (var k = 0; k < teamSpanIdArray.length; k++) {
-	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
-		teamCurrStat.innerHTML = myTeamStats[k];
-		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
-		oppCurrStat.innerHTML = oppTeamStats[k];
-	  }
-	});
+  	window.addEventListener('DOMContentLoaded', function() {
+  	  for (var k = 0; k < teamSpanIdArray.length; k++) {
+  	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
+  		teamCurrStat.innerHTML = myTeamStats[k];
+  		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
+  		oppCurrStat.innerHTML = oppTeamStats[k];
+  	  }
+  	});
 
     function logoutClean() {
       localStorage.removeItem("user");
