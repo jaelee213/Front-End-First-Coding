@@ -48,8 +48,8 @@
     var gameArray = JSON.parse(localStorage.getItem('games'));
     var gam = JSON.parse(localStorage.getItem('gamestattoedit'));
 		var game = gam.stats;
-    var myTeamStats = [game.myscore, game.myfoul, game.myredcard, game.myyellowcard, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
-    var oppTeamStats = [game.opponentscore, game.opponentfoul, game.opponentredcard, game.opponentyellowcard, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
+    var myTeamStats = [game.mygoals, game.myfouls, game.myredcards, game.myyellowcards, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
+    var oppTeamStats = [game.opponentgoals, game.opponentfouls, game.opponentredcards, game.opponentyellowcards, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
 
 		var mt = document.getElementById('myteam'); 
 		var tt = document.getElementById('theirteam'); 
@@ -83,11 +83,38 @@
   	}
 
   	egssaveBtn.addEventListener('click', function () {
-  	  for (var m = 0; m < myTeamStats.length; m++) {
-  	    myTeamStats[m] = document.getElementById(teamSpanIdArray[m]).innerHTML;
-  		  oppTeamStats[m] = document.getElementById(oppSpanIdArray[m]).innerHTML;
-  	  }
-  	  gameArray.push(game);
+
+			var glist = JSON.parse(localStorage.getItem('games')); 
+
+			for(var g = 0; g < glist.length; g++) {
+        var gdate = new Date(glist[g].date); 
+        var gadate = new Date(gam.date); 
+
+        if( (glist[g].opponentname == gam.opponentname) 
+        && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
+          
+					var gm = glist[g]; 
+
+					gm.mygoals = myteamscorevgs.innerHTML; 
+					gm.opponentgoals = oppteamscoresvgs.innerHTML;
+					gm.myfouls = myteamfoulvgs.innerHTML; 
+					gm.opponentfouls = oppteamfoulvgs.innerHTML; 
+					gm.myredcards = myteamredcardvgs.innerHTML; 
+					gm.opponentredcards = oppteamredcardvgs.innerHTML;
+					gm.myyellowcards = myteamyellowcardvgs.innerHTML; 
+					gm.opponentyellowcards = oppteamyellowcardvgs.innerHTML; 
+					gm.myshotsongoal = myteamshotsongoalvgs.innerHTML; 
+					gm.opponentshotsongoal = oppteamshotsongoalvgs.innerHTML; 
+					gm.mycornerkicks = myteamcornerkicksvgs.innerHTML; 
+					gm.opponentcornerkicks = oppteamcornerkicksvgs.innerHTML; 
+					gm.mygoalkicks = myteamgoalkicksvgs.innerHTML; 
+					gm.opponentgoalkicks = oppteamgoalkicksvgs.innerHTML; 
+					
+        }
+      }
+
+			localStorage.setItem('games', JSON.stringify(glist)); 
+  	  
   	});
 
     function logoutClean() {
