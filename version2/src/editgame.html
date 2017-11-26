@@ -23,16 +23,16 @@
     <h2>Edit Game</h2>
     <form>
       <p><label for="OppTeam">Opposing Team:</label></p>
-      <input type="text" id="OppTeam" name="OppTeam" value="Team Green">
+      <input type="text" id="OppTeam" name="OppTeam">
       <p><label for="gameDate">Date:</label></p>
-      <input type="date" id="gameDate" name="gameDate" value="2017-11-15">
+      <input type="date" id="gameDate" name="gameDate">
       <p><label for="gametime">Time:</label></p>
-      <input type="time" id="gametime" name="time" value="19:00">
+      <input type="time" id="gametime" name="time">
       <p><label>Time of Day:</label></p>
       <output id="outOpt">
       </output>      
       <p><label for="location">Location:</label></p>
-      <input type="text" id="location" name="location" value="SD Petco Park">
+      <input type="text" id="location" name="location">
       <p><label>Status:</label></p>
       <output id="outputOption">
       </output> 
@@ -43,6 +43,9 @@
   <script>
 
     var game = JSON.parse(localStorage.getItem('gametoedit')); 
+    
+    var savebutton = document.getElementById('exsave'); 
+    var deletebutton = document.getElementById('delB'); 
 
     window.addEventListener('DOMContentLoaded', function() {
 
@@ -83,6 +86,23 @@
 
     })
 
+    
+
+    savebutton.addEventListener('click', function() {
+      location.href='./gameschedule.html';
+    })
+
+    deletebutton.addEventListener('click', function(){ 
+      location.href='./gameschedule.html';
+    })
+
+    savebutton.addEventListener('click', function() {
+
+    })
+
+    deletebutton.addEventListener('click', function(){ 
+
+    })
 
     function logoutClean() {
       localStorage.removeItem("user");
