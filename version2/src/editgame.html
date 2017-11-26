@@ -121,6 +121,8 @@
           game.status = document.querySelector('input[name=status]:checked').value; 
           game.tod = tod; 
           game.location = l.value;
+          
+alert("going to update: " + glist[g].opponentname + " game");
 
           localStorage.setItem('games', JSON.stringify(glist));
         }
@@ -134,7 +136,8 @@
 
         if( (glist[g].opponentname == game.opponentname) 
         && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
-          
+
+alert("going to delete: " + glist[g].opponentname + " game");
           glist.splice(g, 1); 
           localStorage.setItem('games', JSON.stringify(glist));
         }
