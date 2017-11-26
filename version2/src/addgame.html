@@ -69,6 +69,10 @@
       }
 
       game.time = gTime; 
+
+
+      alert("Time stored is " + gTime);
+
       game.location = document.getElementById('gamelocation').value;
       game.status = document.getElementById('homeawaystatus').value;
       game.finished = false;
@@ -109,7 +113,7 @@
       else{
 
         alert('storing on new'); 
-        
+
         var gameArr = [game]; 
         localStorage.setItem('games', JSON.stringify(gameArr));
       }
