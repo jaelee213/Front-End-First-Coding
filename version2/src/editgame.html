@@ -56,12 +56,15 @@
       var d = document.getElementById('gameDate'); 
       var t = document.getElementById('gametime');
       var l = document.getElementById('location'); 
+      var gtime; 
 
       if(game.tod == "day") {
+        gtime = game.time.replace(" am", ""); 
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio' checked>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio'>P.M.</p>";
       }
       else {
+        gtime = game.time.replace(" pm", ""); 
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio'>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio' checked>P.M.</p>";
       }
@@ -74,10 +77,6 @@
         out.innerHTML += "<p><input type='radio' name='status' value='home' id='status'>Home</p>" 
         + "<p><input type='radio' name='status' value='away' id='status' checked>Away</p>"; 
       }
-
-      var gtime;
-      gtime = game.time.replace(' am', ''); 
-      gtime = game.time.replace(' pm', ''); 
 
       ot.value = game.opponentname; 
       d.value = game.date; 
@@ -94,6 +93,8 @@
     deletebutton.addEventListener('click', function(){ 
       location.href='./gameschedule.html';
     })
+
+
 
     savebutton.addEventListener('click', function() {
 
