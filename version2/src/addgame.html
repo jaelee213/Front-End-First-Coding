@@ -51,7 +51,7 @@
 	    game.date = theDate;
 	    game.time = theTime;
 	    game.location = theLocation;
-  	    game.home = isHomeGame;
+  	  game.home = isHomeGame;
 	    game.myTeamScore = 0;
 	    game.myTeamFoul = 0;
 	    game.myTeamRed = 0;
@@ -69,7 +69,7 @@
 	    game.oppTeamCornerKicks = 0;
 	    game.oppTeamGoalKicks = 0;
 
-  	    var gameList = JSON.parse(localStorage.getItem('games'));
+  	  var gameList = JSON.parse(localStorage.getItem('games'));
 
 	    if (gameList) {
 	      gameList.push(game);
