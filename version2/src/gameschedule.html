@@ -95,6 +95,8 @@
         (function(index) {
           editButton[index].addEventListener('click', function(){
             localStorage.setItem('gametoedit', JSON.stringify(gArray[leng - index]));
+alert("garry: " + gArray.length); 
+alert("editButton.length" + editButton.length);
 alert(leng-index);
           });
         })(y);
