@@ -58,22 +58,26 @@
       var l = document.getElementById('location'); 
       var gtime; 
 
+alert("loaded: " + game.tod);
+
       if(game.tod == "day") {
         gtime = game.time.replace(" am", ""); 
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio' checked>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio'>P.M.</p>";
       }
-      if(game.tod == "night") {
+      else if(game.tod == "night") {
         gtime = game.time.replace(" pm", ""); 
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio'>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio' checked>P.M.</p>";
       }
 
+alert("loaded: " + game.status);
+
       if(game.status == "Home") {
         out.innerHTML += "<p><input type='radio' name='status' value='home' id='status' checked>Home</p>" 
         + "<p><input type='radio' name='status' value='away' id='status'>Away</p>"; 
       }
-      if(game.status == "Away") {
+      else if(game.status == "Away") {
         out.innerHTML += "<p><input type='radio' name='status' value='home' id='status'>Home</p>" 
         + "<p><input type='radio' name='status' value='away' id='status' checked>Away</p>"; 
       }
