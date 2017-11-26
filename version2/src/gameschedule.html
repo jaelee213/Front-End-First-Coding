@@ -25,7 +25,6 @@
 
 
   <output id="outputgames">
-
   </output>
 
 
@@ -51,28 +50,28 @@
           + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
           + "</p><p>" + gArray[i].location 
           + "</p><p>" + gArray[i].status 
-          + "</p><input type='button' class='viewgamestatsbtn' value='View Stats' class='viewStatsBtn'>"
-          + "<input type='button' class='editgamestatsbtn' value='Edit Game' class='editGameBtn'>"; 
+          + "</p><input type='button' value='View Stats' class='viewStatsBtn'>"
+          + "<input type='button' value='Edit Game' class='editGameBtn'>"; 
 
           index = 1; 
         }
 
-        else if(index == 0) {
+        else if(todayDate.setHours(0, 0, 0, 0) > compareDate.setHours(0, 0, 0, 0)) {
           disGam.innerHTML += "<div class='box0'><h2>Previous Game: " + gArray[i].date 
           + "</h2><h3>" + myteamname + " vs " + gArray[i].opponentname 
           + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
           + "</p><p>" + gArray[i].location 
           + "</p><p>" + gArray[i].status 
-          + "</p><input type='button' class='viewgamestatsbtn' value='View Stats' class='viewStatsBtn'></div>"; 
+          + "</p><input type='button' value='View Stats' class='viewStatsBtn'></div>"; 
         }
 
-        else if(index != 0 && todayDate.setHours(0, 0, 0, 0) != compareDate.setHours(0, 0, 0, 0)) {
+        else if(todayDate.setHours(0, 0, 0, 0) < compareDate.setHours(0, 0, 0, 0)) {
           disGam.innerHTML += "<div class='box0'><h2>Next Game: " + gArray[i].date 
           + "</h2><h3>" + myteamname + " vs " + gArray[i].opponentname 
           + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
           + "</p><p>" + gArray[i].location 
           + "</p><p>" + gArray[i].status 
-          + "</p><input type='button' class='editgamestatsbtn' value='Edit Game' class='editGameBtn'></div>"; 
+          + "</p><input type='button' value='Edit Game' class='editGameBtn'></div>"; 
           break; 
         }
 
