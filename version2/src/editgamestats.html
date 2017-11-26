@@ -89,6 +89,7 @@
   	egssaveBtn.addEventListener('click', function () {
 
 			var glist = JSON.parse(localStorage.getItem('games')); 
+			var ix; 
 
 			for(var g = 0; g < glist.length; g++) {
         var gdate = new Date(glist[g].date); 
@@ -97,9 +98,9 @@
         if( (glist[g].opponentname == gam.opponentname) 
         && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
           
-					var gm = glist[g].stats; 
+					var gm = {}; 
 
-alert("STORING CHANGES:" + myteamscorevgs.innerHTML + " replacing " + gm.mygoals); 
+					ix = g; 
 
 					gm.mygoals = myteamscorevgs.innerHTML; 
 					gm.opponentgoals = oppteamscoresvgs.innerHTML;
@@ -116,13 +117,12 @@ alert("STORING CHANGES:" + myteamscorevgs.innerHTML + " replacing " + gm.mygoals
 					gm.mygoalkicks = myteamgoalkicksvgs.innerHTML; 
 					gm.opponentgoalkicks = oppteamgoalkicksvgs.innerHTML; 
 
-					glist[g].stats = gm;
-					
+					glist[g].stats = gm;					
         }
       }
 
 			localStorage.setItem('games', JSON.stringify(glist)); 
-  	  
+			localStorage.setItem('gametoview', JSON.stringify(glist[ix]));
   	});
 
     function logoutClean() {

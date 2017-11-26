@@ -43,9 +43,9 @@
   </div>
   <script>
 
-  	window.addEventListener('DOMContentLoaded', function() {
+		var game = JSON.parse(localStorage.getItem('gametoview')); 
 
-			var game = JSON.parse(localStorage.getItem('gametoview')); 
+  	window.addEventListener('DOMContentLoaded', function() {
 
 			var stats = game.stats;
 			var my = document.getElementById('myteam'); 
@@ -93,7 +93,6 @@
 		var edBtn = document.getElementById('editgamestatsBtn'); 
 
 		edBtn.addEventListener('click', function() { 
-			var game = JSON.parse(localStorage.getItem('gametoview')); 
 			localStorage.setItem('gamestattoedit', JSON.stringify(game)); 
 		})
 

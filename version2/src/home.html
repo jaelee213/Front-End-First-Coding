@@ -20,7 +20,7 @@
     <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
   <div class="teamcontainer">
-    <h1 class="myteamnamehome">Team KongLeeKim</h1>
+    <h1 class="myteamnamehome" id="mytname"></h1>
 	<hr>
 	<p id="teamtotalheader">Team Total Stats</p>
 	<table id="teamtotaltable">
@@ -31,32 +31,98 @@
 	  </tr>
 	  <tr>
 	    <td id="wins"></td>
-		<td id="losses"></td>
-		<td id="ties"></td>
+			<td id="losses"></td>
+			<td id="ties"></td>
 	  </tr>
 	</table>
 	<table id="teamgoaltable">
 	  <tr>
 	    <th>Total Goals Scored</th>
-		<th>Total Goals Given Up</th>
+			<th>Total Goals Given Up</th>
 	  </tr>
 	  <tr>
 	    <td id=totalgoalsscored></td>
-		<td id=totalgoalsgivenup></td>
+			<td id=totalgoalsgivenup></td>
 	  </tr>
 	</table>
-  </div>
-  <div class="gamecontainer">
-    <h1>Today's Game</h1>
-	<p id="matchname">Team KongLeeKim vs Team Green</p>
-	<p><span id="matchscore">0 : 0</span></p>
-	<p>11/15 Tue 7:00 PM</p>
-	<p>SD Petco Park</p>
-	<p>Home Game</p>
-	<input type="button" onclick="location.href='./viewgamestats.html';" value="View Stats" id="viewStatsBtn">
-	<input type="button" onclick="location.href='./editgame.html';" value="Edit Game" id="editGameBtn">
-  </div>
+	</div>
+	
+	<output id="outPut">
+	</output>
+
+
   <script>
+
+		var gArray = JSON.parse(localStorage.getItem('games'));
+
+    window.addEventListener('DOMContentLoaded', function(){
+
+			var myname = localStorage.getItem('myteamname');
+      var disGam = document.getElementById('outputgames');
+
+			var tn = document.getElementById('mytname'); 
+			tn.innerHTML = myname;
+
+			var wins = 0; 
+			var losses = 0; 
+			var ties = 0; 
+			var gs = 0; 
+			var gg = 0;
+
+			var wi = document.getElementById('wins'); 
+			var lo = document.getElementById('losses');
+			var ti = document.getElementById('ties'); 
+			var tgs = document.getElementById('totalgoalsscored'); 
+			var tgg = document.getElementById('totalgoalsgivenup')
+
+			for (var i = 0; i < gArray.length; i++) {
+
+        var todayDate = new Date();
+        var compareDate = new Date(gArray[i].date);
+
+				if(todayDate.setHours(0, 0, 0, 0) > compareDate.setHours(0, 0, 0, 0)) {
+					var curstats = gArray[i].stats;
+					
+					if(curstats.mygoals == curstats.opponentgoals) {
+						ties = ties + 1; 
+					}
+					else if (curstats.mygoals > curstats.opponentgoals) {
+						wins = wins + 1; 
+					}
+					else { 
+						losses = losses + 1; 
+					}
+
+					gs = gs + curstats.mygoals; 
+					gg = gg + curstats.opponentgoals;
+
+				}
+			}
+
+			wi.innerHTML = wins; 
+			lo.innerHTML = losses; 
+			ti.innerHTML = ties; 
+			tgs.innerHTML = gs; 
+			tgg.innerHTML = gg;
+
+      for (var i = 0; i < gArray.length; i++) {
+
+        var todayDate = new Date();
+        var compareDate = new Date(gArray[i].date);
+
+        if( todayDate.setHours(0, 0, 0, 0) == compareDate.setHours(0, 0, 0, 0) ) {
+
+          disGam.innerHTML += "<div class='gamecontainer'><h1>Today's Game: " + gArray[i].date
+          + "</h1><p>" + myname + " vs " + gArray[i].opponentname + "</p>"
+          + "<p><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></p>"
+          + "<p>" + gArray[i].date + " " + gArray[i].time
+          + "</p><p>" + gArray[i].location
+          + "</p><p>" + gArray[i].status
+          + "</p></div>";
+        }
+			}
+		})
+
     function btnStatus() {
       var user = localStorage.getItem("user");
 
