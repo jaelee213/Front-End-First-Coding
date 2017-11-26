@@ -45,13 +45,18 @@
       <p><label>Status:</label></p>
       <input type="radio" name="status" value="Home" id="homeawaystatus">Home<br>
       <input type="radio" name="status" value="Away" id="homeawaystatus">Away<br>
-      <input type="submit" value="Add Game" id="saveButton">
+      <hr>
+      <input type="button" value="Add Game" id="egssaveBtn">
 		</form>
 	</div>
 	
 	<script>
 	
-		var sButton = document.getElementById('saveButton'); 
+		var sButton = document.getElementById('egssaveBtn'); 
+
+    sButton.addEventListener('click', function() {
+      location.href='./gameschedule.html';
+    })
 
     sButton.addEventListener('click', function() {
       var tod = document.querySelector('input[name=tofday]:checked').value; 
@@ -105,10 +110,6 @@
         var gameArr = [game]; 
         localStorage.setItem('games', JSON.stringify(gameArr));
       }
-    })
-
-    sButton.addEventListener('click', function() {
-      location.href='./gameschedule.html'; 
     })
 
 		function logoutClean() {
