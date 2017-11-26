@@ -25,7 +25,7 @@
 	  <h1 class="vgsgameheader">vs.</h1>
 	  <h1 class="vgsgameheader">Team Blake</h1>
 	  <hr class="vgshr">
-	  <p><span id="myteamscorevgs">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span></p>
+	  <p><span id="	">3</span> <span class="vgsstats">Score</span> <span id="oppteamscoresvgs">1</span></p>
 	  <hr class="vgshr">
 	  <p><span id="myteamfoulvgs">1</span> <span class="vgsstats">Foul</span> <span id="oppteamfoulvgs">4</span></p>
 	  <hr class="vgshr">
@@ -43,19 +43,26 @@
   </div>
   <script>
 
-  	var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
-  	var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
-  	var gameArray = JSON.parse(localStorage.getItem('games'));
-    var game = gameArray[gameArray.length - 1];
-    var myTeamStats = [game.myscore, game.myfoul, game.myredcard, game.myyellowcard, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
-    var oppTeamStats = [game.opponentscore, game.opponentfoul, game.opponentredcard, game.opponentyellowcard, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
 
   	window.addEventListener('DOMContentLoaded', function() {
+
+			var game = localStorage.getItem('gametoview'); 
+
+			alert(game.opponentname); 
+
+
+			var teamSpanIdArray = ['myteamscorevgs', 'myteamfoulvgs', 'myteamredcardvgs', 'myteamyellowcardvgs', 'myteamshotsongoalvgs', 'myteamgoalsvgs', 'myteamcornerkicksvgs', 'myteamgoalkicksvgs'];
+			var oppSpanIdArray = ['oppteamscoresvgs', 'oppteamfoulvgs', 'oppteamredcardvgs', 'oppteamyellowcardvgs', 'oppteamshotsongoalvgs', 'oppteamgoalsvgs', 'oppteamcornerkicksvgs', 'oppteamgoalkicksvgs'];
+			var gameArray = JSON.parse(localStorage.getItem('games'));
+			var myTeamStats = [game.mygoals, game.myfoul, game.myredcard, game.myyellowcard, game.myshotsongoal, game.mygoals, game.mycornerkicks, game.mygoalkicks];
+			var oppTeamStats = [game.opponentgoals, game.opponentfoul, game.opponentredcard, game.opponentyellowcard, game.opponentshotsongoal, game.opponentgoals, game.opponentcornerkicks, game.opponentgoalkicks];
+
+
   	  for (var k = 0; k < teamSpanIdArray.length; k++) {
   	  	var teamCurrStat = document.getElementById(teamSpanIdArray[k]);
-  		teamCurrStat.innerHTML = myTeamStats[k];
-  		var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
-  		oppCurrStat.innerHTML = oppTeamStats[k];
+				teamCurrStat.innerHTML = myTeamStats[k];
+				var oppCurrStat = document.getElementById(oppSpanIdArray[k]);
+				oppCurrStat.innerHTML = oppTeamStats[k];
   	  }
   	});
 
