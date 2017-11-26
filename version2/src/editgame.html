@@ -36,29 +36,28 @@
       <p><label>Status:</label></p>
       <output id="outputOption">
       </output> 
-      <input type="button" value="Edit Game" id="exsave">
+      <input type="button" value="Save Game" id="exsave">
       <input type="button" value="Delete Game" id="delB">
     </form>
   </div>
   <script>
 
     var game = JSON.parse(localStorage.getItem('gametoedit')); 
-    
+    var glist = JSON.parse(localStorage.getItem('games'));
+
     var savebutton = document.getElementById('exsave'); 
     var deletebutton = document.getElementById('delB'); 
+    var out = document.getElementById('outputOption');
+    var put = document.getElementById('outOpt'); 
+
+    var ot = document.getElementById('OppTeam'); 
+    var d = document.getElementById('gameDate'); 
+    var t = document.getElementById('gametime');
+    var l = document.getElementById('location');
 
     window.addEventListener('DOMContentLoaded', function() {
 
-      var out = document.getElementById('outputOption');
-      var put = document.getElementById('outOpt'); 
-
-      var ot = document.getElementById('OppTeam'); 
-      var d = document.getElementById('gameDate'); 
-      var t = document.getElementById('gametime');
-      var l = document.getElementById('location'); 
       var gtime; 
-
-alert("loaded: " + game.tod);
 
       if(game.tod == "day") {
         gtime = game.time.replace(" am", ""); 
@@ -70,8 +69,6 @@ alert("loaded: " + game.tod);
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio'>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio' checked>P.M.</p>";
       }
-
-alert("loaded: " + game.status);
 
       if(game.status == "Home") {
         out.innerHTML += "<p><input type='radio' name='status' value='home' id='status' checked>Home</p>" 
@@ -89,7 +86,6 @@ alert("loaded: " + game.status);
     })
 
     
-
     savebutton.addEventListener('click', function() {
       location.href='./gameschedule.html';
     })
@@ -99,13 +95,43 @@ alert("loaded: " + game.status);
     })
 
 
-
     savebutton.addEventListener('click', function() {
 
+      var tod = document.querySelector('input[name=tofday]:checked').value; 
+      var gTime = t.value; 
+
+      if(tod == "day") {
+        gTime = gTime.concat(" am");
+      }
+      if(tod == "night") {
+        gTime = gTime.concat(" pm"); 
+      }
+
+      for(var g = 0; g < glist.length; g++) {
+        if( (glist[g].opponentname == game.opponentname) 
+        && (new Date(glist[g].date + ' ' + glist[g].time) == (new Date(game.date + ' ' + game.time)))) {
+
+          game = glist[g]; 
+          game.opponentname = ot.value; 
+          game.date = d.value; 
+          game.time = gTime;
+          game.status = document.querySelector('input[name=status]:checked').value; 
+          game.tod = tod; 
+          game.location = l.value;
+
+          localStorage.setItem('games', JSON.stringify(glist));
+        }
+      }
     })
 
     deletebutton.addEventListener('click', function(){ 
-
+      for(var g = 0; g < glist.length; g++) {
+        if( (glist[g].opponentname == game.opponentname) 
+        && (new Date(glist[g].date + ' ' + glist[g].time) == (new Date(game.date + ' ' + game.time)))) {
+          glist.splice(g, 1); 
+          localStorage.setItem('games', JSON.stringify(glist));
+        }
+      }
     })
 
     function logoutClean() {

@@ -94,10 +94,6 @@
         (function(index) {
           editButton[index].addEventListener('click', function(){
             localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length - index)]));
-alert("garry: " + gArray.length); 
-alert("editButton.length" + editButton.length);
-alert("index: " + index);
-alert(leng-index);
           });
         })(y);
         editButton[y].addEventListener('click', function(){

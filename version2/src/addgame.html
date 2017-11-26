@@ -76,13 +76,9 @@
 
       game.time = gTime; 
       game.tod = tod; 
-
-alert("Stored tod: " + game.tod);   
     
       game.location = document.getElementById('gamelocation').value;
       game.status = document.querySelector('input[name=status]:checked').value; 
-      game.finished = false;
-      game.won = false; 
 
       var gamestats = {}
       gamestats.myfouls = "0"; 
