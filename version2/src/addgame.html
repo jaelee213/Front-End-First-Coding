@@ -54,7 +54,6 @@
 		var sButton = document.getElementById('saveButton'); 
 
     sButton.addEventListener('click', function() {
-     
       var tod = document.querySelector('input[name=tofday]:checked').value; 
       var gTime = document.getElementById('gametime').value;
 
@@ -96,46 +95,23 @@
 
       game.stats = gamestats;
 
-
       var gamesArray = JSON.parse(localStorage.getItem('games')); 
       if(gamesArray) {
         gamesArray.push(game); 
         gamesArray.sort(function(a, b) {
 		      return new Date(a.date + ' ' + a.time) - new Date(b.date + ' ' + b.time);
         });
-
-        alert('storing on existing'); 
-
         localStorage.setItem('games', JSON.stringify(gamesArray)); 
       }
       else{
-
-        alert('storing on new'); 
-
         var gameArr = [game]; 
         localStorage.setItem('games', JSON.stringify(gameArr));
       }
-
     })
 
-    sButton.addEventListener('click', function() {
-
-      var arr = JSON.parse(localStorage.getItem('games')); 
-
-      for( var y = 0; y < arr.length; y++) {
-
-        alert("At " + y + " it is game " + arr[y].opponentname + " " + arr[y].date + " " + arr[y].time);
-
-      }
-
-    })
-
-/*
     sButton.addEventListener('click', function() {
       location.href="./gameschedule.html"; 
     })
-*/		
-
 
 		function logoutClean() {
 			localStorage.removeItem("user");
