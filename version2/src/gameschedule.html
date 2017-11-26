@@ -19,37 +19,89 @@
     <a href="./players.html">Roster</a>
     <a href="./login.html" id="logout" onclick="logoutClean()"> Logout</a>
   </nav>
+
   <input type="button" onclick="location.href='./addgame.html';" value="Add Game" id="addGameBtn">
   <input type="button" onclick="location.href='./addpractice.html';" value="Add Practice" id="addPracBtn">
-  <div class="box0">
-    <h2>Previous Game</h2>
-    <h3>My Team vs Team Blue</h3>
-    <h4><mark>5:3</mark></h4>
-    <p>10/15 Sun 5:00 PM</p>
-    <p>LA Rose Bowl</p>
-    <p>Home Game</p>
-    <input type="button" onclick="location.href='./viewgamestats.html';" value="View Stats" class="viewStatsBtn">
-  </div>
-  <div class="box0">
-    <h2>Today's Game</h2>
-    <h3>My Team vs Team Blue</h3>
-    <h4><mark>0:0</mark></h4>
-    <p>11/15 Sun 7:00 PM</p>
-    <p>SD Petco Park</p>
-    <p>Home Game</p>
-    <input type="button" onclick="location.href='./viewgamestats.html';" value="View Stats" class="viewStatsBtn">
-    <input type="button" onclick="location.href='./editgame.html';" value="Edit Game" class="editGameBtn">
-  </div>
-  <div class="box0">
-    <h2>Upcoming Game</h2>
-    <h3>My Team vs Team Blue</h3>
-    <p>11/20 Tue 4:00 PM</p>
-    <p>SD Qualcomm Stadium</p>
-    <p>Away Game</p>
-    <input type="button" onclick="location.href='./editgame.html';" value="Edit Game" class="editGameBtn">
-  </div>
+
+
+  <output id="outputgames">
+
+  </output>
+
 
   <script type="text/javascript">
+
+    var gArray = JSON.parse(localStorage.getItem('games'));
+    var myteamname = localStorage.getItem('myteamname'); 
+
+    window.addEventListener('DOMContentLoaded', function(){
+
+      var disGam = document.getElementById('outputgames'); 
+      var index = 0;
+
+      for (var i = 0; i < gArray.length; i++) {
+        
+        var todayDate = new Date(); 
+        var compareDate = new Date(gArray[i].date); 
+
+        if( todayDate.setHours(0, 0, 0, 0) == compareDate.setHours(0, 0, 0, 0) ) {
+
+          disGam.innerHTML += "<div class='box0'><h2>Today's Game: " + gArray[i].date 
+          + "</h2><h3>" + myteamname + " vs " + gArray[i].opponentname 
+          + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
+          + "</p><p>" + gArray[i].location 
+          + "</p><p>" + gArray[i].status 
+          + "</p><input type='button' class='viewgamestatsbtn' value='View Stats' class='viewStatsBtn'>"
+          + "<input type='button' class='editgamestatsbtn' value='Edit Game' class='editGameBtn'>"; 
+
+          index = 1; 
+        }
+
+        else if(index == 0) {
+          disGam.innerHTML += "<div class='box0'><h2>Previous Game: " + gArray[i].date 
+          + "</h2><h3>" + myteamname + " vs " + gArray[i].opponentname 
+          + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
+          + "</p><p>" + gArray[i].location 
+          + "</p><p>" + gArray[i].status 
+          + "</p><input type='button' class='viewgamestatsbtn' value='View Stats' class='viewStatsBtn'></div>"; 
+        }
+
+        else if(index != 0 && todayDate.setHours(0, 0, 0, 0) != compareDate.setHours(0, 0, 0, 0)) {
+          disGam.innerHTML += "<div class='box0'><h2>Next Game: " + gArray[i].date 
+          + "</h2><h3>" + myteamname + " vs " + gArray[i].opponentname 
+          + "</h3><p>" + gArray[i].date + " " + gArray[i].time 
+          + "</p><p>" + gArray[i].location 
+          + "</p><p>" + gArray[i].status 
+          + "</p><input type='button' class='editgamestatsbtn' value='Edit Game' class='editGameBtn'></div>"; 
+          break; 
+        }
+
+      }
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+      var gameArray = JSON.parse(localStorage.getItem('games')); 
+
+      for(var x = 0; x < gameArray.length; x++) {
+
+        alert(gameArray[x].time); 
+
+
+
+
+      }
+
+    })
 
 
     function btnStatus() {
