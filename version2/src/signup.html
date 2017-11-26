@@ -30,6 +30,8 @@
       <input type="text" name="supwd" placeholder="Password" id="signuppwd">
       <br>
       <input type="text" name="suconfpwd" placeholder="Confirm Password" id="signupconfpwd">
+      <br> 
+      <input type="text" name="myteamname" placeholder="Name of Your Team" id="myteamname">
     </form>
 	<hr class="signupsmallhr">
 	<p class="iama">I am a:</p>
@@ -57,6 +59,7 @@
     var ln = document.getElementById('signuplname'); 
     var pw = document.getElementById('signuppwd'); 
     var cpw = document.getElementById('signupconfpwd'); 
+    var mtn = document.getElementById('myteamname');
 
     document.getElementById('signupBtn').addEventListener("click", function() {
       if (userid.value.length == 0 || fn.value.length == 0 || ln.value.length == 0 
@@ -79,6 +82,7 @@
     document.getElementById('signupBtn').addEventListener("click", function() {
       localStorage.setItem("userid", userid.value);
       localStorage.setItem("pw", pw.value);
+      localStorage.setItem("myteamname", mtn.value);
     });
   
   </script>
