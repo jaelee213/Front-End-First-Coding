@@ -63,7 +63,7 @@
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio' checked>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio'>P.M.</p>";
       }
-      else {
+      if(game.tod == "night") {
         gtime = game.time.replace(" pm", ""); 
         put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio'>A.M.</p>"
         + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio' checked>P.M.</p>";
@@ -73,7 +73,7 @@
         out.innerHTML += "<p><input type='radio' name='status' value='home' id='status' checked>Home</p>" 
         + "<p><input type='radio' name='status' value='away' id='status'>Away</p>"; 
       }
-      else {
+      if(game.status == "Away") {
         out.innerHTML += "<p><input type='radio' name='status' value='home' id='status'>Home</p>" 
         + "<p><input type='radio' name='status' value='away' id='status' checked>Away</p>"; 
       }
