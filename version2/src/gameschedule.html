@@ -24,7 +24,7 @@
   <input type="button" onclick="location.href='./addpractice.html';" value="Add Practice" id="addPracBtn">
 
 
-  <output id="outputgames" onload="afterLoad()">
+  <output id="outputgames">
   </output>
 
 
@@ -105,7 +105,7 @@
       }
     }
 
-
+    window.onload = afterLoad;
 
     function btnStatus() {
       var username = localStorage.getItem("user");
