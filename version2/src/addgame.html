@@ -36,7 +36,7 @@
       <input type="time" id="gametime" name="time">
       <br>
       <p><label>Time of Day:</label></p>
-      <input type="radio" name="tofday" value="day" id="timeofdayradio">A.M.</p>
+      <p><input type="radio" name="tofday" value="day" id="timeofdayradio">A.M.</p>
       <p><input type="radio" name="tofday" value="night" id="timeofdayradio">P.M.</p>
       <br>
       <p><label for="location">Location:</label></p>
@@ -75,6 +75,7 @@
       }
 
       game.time = gTime; 
+      game.tod = tod; 
       game.location = document.getElementById('gamelocation').value;
       game.status = document.querySelector('input[name=status]:checked').value; 
       game.finished = false;

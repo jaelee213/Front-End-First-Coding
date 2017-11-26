@@ -28,22 +28,58 @@
       <input type="date" id="gameDate" name="gameDate" value="2017-11-15">
       <p><label for="gametime">Time:</label></p>
       <input type="time" id="gametime" name="time" value="19:00">
+      <p><label>Time of Day:</label></p>
+      <output id="outOpt">
+      </output>      
       <p><label for="location">Location:</label></p>
       <input type="text" id="location" name="location" value="SD Petco Park">
       <p><label>Status:</label></p>
-      <p><input type="radio" name="status" value="home">Home</p>
-      <p><input type="radio" name="status" value="away">Away</p>
-      <input type="submit" value="Edit Game">
-      <input type="button" value="Delete Game">
+      <output id="outputOption">
+      </output> 
+      <input type="button" value="Edit Game" id="exsave">
+      <input type="button" value="Delete Game" id="delB">
     </form>
   </div>
   <script>
 
+    var game = JSON.parse(localStorage.getItem('gametoedit')); 
+
     window.addEventListener('DOMContentLoaded', function() {
 
-      var game = JSON.parse(localStorage.getItem('gametoedit')); 
-      alert(game.opponentname); 
+      var out = document.getElementById('outputOption');
+      var put = document.getElementById('outOpt'); 
 
+      var ot = document.getElementById('OppTeam'); 
+      var d = document.getElementById('gameDate'); 
+      var t = document.getElementById('gametime');
+      var l = document.getElementById('location'); 
+
+      if(game.tod == "day") {
+        put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio' checked>A.M.</p>"
+        + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio'>P.M.</p>";
+      }
+      else {
+        put.innerHTML += "<p><input type='radio' name='tofday' value='day' id='timeofdayradio'>A.M.</p>"
+        + "<p><input type='radio' name='tofday' value='night' id='timeofdayradio' checked>P.M.</p>";
+      }
+
+      if(game.status == "Home") {
+        out.innerHTML += "<p><input type='radio' name='status' value='home' id='status' checked>Home</p>" 
+        + "<p><input type='radio' name='status' value='away' id='status'>Away</p>"; 
+      }
+      else {
+        out.innerHTML += "<p><input type='radio' name='status' value='home' id='status'>Home</p>" 
+        + "<p><input type='radio' name='status' value='away' id='status' checked>Away</p>"; 
+      }
+
+      var gtime;
+      gtime = game.time.replace(' am', ''); 
+      gtime = game.time.replace(' pm', ''); 
+
+      ot.innerHTML = game.opponentname; 
+      d.innerHTML = game.date; 
+      t.innerHTML = gtime;
+      l.innerHTML = game.location;
 
     })
 
