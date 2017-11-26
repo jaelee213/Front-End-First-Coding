@@ -46,7 +46,7 @@
 
   	window.addEventListener('DOMContentLoaded', function() {
 
-			var game = localStorage.getItem('gametoview'); 
+			var game = JSON.parse(localStorage.getItem('gametoview')); 
 
 			alert(game.opponentname); 
 
