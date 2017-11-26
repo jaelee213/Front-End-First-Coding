@@ -139,9 +139,11 @@
     })
 
     sv.addEventListener('click', function() {
+      var indx = 0; 
       for(var s = 0; s < ros.length; s++) {
         if(ros[s].jerseynumber == pla.jerseynumber && ros[s].name == pla.name) {
           var currentPlyr = ros[s];
+          indx = s; 
           currentPlyr.firstname = fnm.innerHTML;
           currentPlyr.lastname = lnm.innerHTML;
           currentPlyr.name = nme.innerHTML;
@@ -157,6 +159,7 @@
         }
       }
       localStorage.setItem('roster', JSON.stringify(ros));
+      localStorage.setItem('playertoedit', JSON.stringify(ros[indx]));
     })
 
     dl.addEventListener('click', function() {
