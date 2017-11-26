@@ -45,8 +45,9 @@
         if( todayDate.setHours(0, 0, 0, 0) == compareDate.setHours(0, 0, 0, 0) ) {
 
           disGam.innerHTML += "<div class='box0'><h2>Today's Game: " + gArray[i].date
-          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname
-          + "</h3><p>" + gArray[i].date + " " + gArray[i].time
+          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname + "</h3>"
+          + "<h4><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></h4>"
+          + "<p>" + gArray[i].date + " " + gArray[i].time
           + "</p><p>" + gArray[i].location
           + "</p><p>" + gArray[i].status
           + "</p><input type='button' value='View Stats' class='viewStatsBtn'>"
@@ -55,8 +56,9 @@
 
         else if(todayDate.setHours(0, 0, 0, 0) > compareDate.setHours(0, 0, 0, 0)) {
           disGam.innerHTML += "<div class='box0'><h2>Previous Game: " + gArray[i].date
-          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname
-          + "</h3><p>" + gArray[i].date + " " + gArray[i].time
+          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname + "</h3>"
+          + "<h4><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></h4>"
+          + "<p>" + gArray[i].date + " " + gArray[i].time
           + "</p><p>" + gArray[i].location
           + "</p><p>" + gArray[i].status
           + "</p><input type='button' value='View Stats' class='viewStatsBtn'></div>";

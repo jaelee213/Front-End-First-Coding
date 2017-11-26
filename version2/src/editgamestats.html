@@ -39,7 +39,7 @@
 		<p><button type="button" class="incrgamestats" onclick="incr('myteamcornerkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamcornerkicksvgs')">-</button> <span id="myteamcornerkicksvgs"></span> <span class="vgsstats">Corner Kicks</span> <span id="oppteamcornerkicksvgs"></span> <button type="button" class="incrgamestats" onclick="incr('oppteamcornerkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamcornerkicksvgs')">-</button></p>
 		<hr class="vgshr">
 		<p><button type="button" class="incrgamestats" onclick="incr('myteamgoalkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('myteamgoalkicksvgs')">-</button> <span id="myteamgoalkicksvgs"></span> <span class="vgsstats">Goal Kicks</span> <span id="oppteamgoalkicksvgs"></span> <button type="button" class="incrgamestats" onclick="incr('oppteamgoalkicksvgs')">+</button><button type="button" class="incrgamestats" onclick="decr('oppteamgoalkicksvgs')">-</button></p>
-		<p><input type="button" onclick="location.href='./viewgamestats.html';" value="Save" id="egssaveBtn"></p>
+		<p><input type="button"  value="Save" id="egssaveBtn"></p>
   </div>
   <script>
 
@@ -81,6 +81,10 @@
       }
   	  currStat.innerHTML = newNum;
   	}
+
+		egssaveBtn.addEventListener('click', function() {
+			location.href='./viewgamestats.html';
+		})
 
   	egssaveBtn.addEventListener('click', function () {
 
