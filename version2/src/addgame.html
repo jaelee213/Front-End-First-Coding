@@ -51,12 +51,11 @@
 	<script>
 	
 		var sButton = document.getElementById('saveButton'); 
-    var tod = document.getElementById('timeofdayradio').value;
-    var gTime = document.getElementById('gametime').value;
-
-alert("Before everything, gTime is " + gTime);
 
     sButton.addEventListener('click', function() {
+     
+      var tod = document.getElementById('timeofdayradio').value;
+      var gTime = document.getElementById('gametime').value;
 
       var game = {}; 
 
