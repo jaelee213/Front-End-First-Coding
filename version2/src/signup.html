@@ -17,10 +17,10 @@
   </nav>
   <div class="signupcontainer">
     <h1 class="signupheader">Sign Up</h1>
-	<p class="signupsmallertxt"><i>Please fill out the following to create your account:</i></p>
-	<p class="signupsmallertxt" id="signupnote">(Note: To go back, press the "TeamWatch" logo at the top.)</p>
-	<hr class="signupsmallhr">
-	<form class="signupform">
+    <p class="signupsmallertxt"><i>Please fill out the following to create your account:</i></p>
+    <p class="signupsmallertxt" id="signupnote">(Note: To go back, press the "TeamWatch" logo at the top.)</p>
+    <hr class="signupsmallhr">
+    <form class="signupform">
       <input type="text" name="suemail" placeholder="Username (Email)" id="signupemail">
       <br>
       <input type="text" name="fname" placeholder="First Name" id="signupfname">
@@ -31,32 +31,24 @@
       <br>
       <input type="text" name="suconfpwd" placeholder="Confirm Password" id="signupconfpwd">
     </form>
-	<hr class="signupsmallhr">
-	<p class="iama">I am a:</p>
-	<p class="signupselectone">Select one:</p>
-	<form class="signupdropdown">
-      <select name="usertype">
-        <option value="coach">Coach</option>
-        <option value="player">Player</option>
-        <option value="fan">Fan</option>
-      </select>
-    </form>
-	<hr class="signupsmallhr">
-	<input type="button" onclick="location.href='./signup.html';" value="Sign Up" id="signupBtn">
+    <hr class="signupsmallhr">
+    <p class="iama">I am a:</p>
+    <p class="signupselectone">Select one:</p>
+    <input type="radio" value="coach" id="usertypeopt">Coach</option>
+    <input type="radio" value="player" id="usertypeopt">Player</option>
+    <input type="radio" value="fan" id="usertypeopt">Fan</option>
+    <hr class="signupsmallhr">
+    <input type="button" value="Sign Up" id="signupBtn">
   </div>
 
-
-
-
-
-
   <script>
-  
+
     var userid = document.getElementById('signupemail'); 
     var fn = document.getElementById('signupfname'); 
     var ln = document.getElementById('signuplname'); 
     var pw = document.getElementById('signuppwd'); 
     var cpw = document.getElementById('signupconfpwd'); 
+    var mtn = document.getElementById('myteamname');
 
     document.getElementById('signupBtn').addEventListener("click", function() {
       if (userid.value.length == 0 || fn.value.length == 0 || ln.value.length == 0 
@@ -82,7 +74,5 @@
     });
   
   </script>
-
-
 </body>
 </html>

@@ -936,3 +936,8 @@ body {
 #signupBtn:hover {
   background-color: #0f4aaa;
 }
+
+.addgamenotice {
+  color: red; 
+  font-size: 0.9rem;
+}

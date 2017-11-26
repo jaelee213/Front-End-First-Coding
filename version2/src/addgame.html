@@ -25,67 +25,128 @@
     <h2 id="testid">Add Game</h2>
     <form id="addgameform">
       <p><label for="OppTeam">Opposing Team:</label></p>
-      <input type="text" id="OppTeam" name="OppTeam" placeholder="Enter Team Name">
-      <p><label for="gameDate">Date:</label></p>
-      <input type="date" id="gameDate" name="gameDate">
+      <input type="text" id="opponentteamname" name="OppTeam" placeholder="Enter Opposition Team Name">
+      <br>
+			<p><label for="gameDate">Date:</label></p>
+			<p class="addgamenotice"><em>For the date, please put it in the fomat: mm/dd/yy (i.e. 11/25/17)</em></p>
+      <input type="date" id="gamedate" name="gameDate">
+      <br>
       <p><label for="gametime">Time:</label></p>
+      <p class="addgamenotice"><em>For the time, please put it in the format: hh:mm (i.e. 11:21) and then select am/pm below.</em></p>
       <input type="time" id="gametime" name="time">
+      <br>
+      <p><input type="radio" name="timeofday" value="am" id="timeofdayradio">AM</p>
+      <p><input type="radio" name="timeofday" value="pm" id="timeofdayradio">PM</p>
+      <br>
       <p><label for="location">Location:</label></p>
-      <input type="text" id="location" name="location" placeholder="Enter Location">
+      <input type="text" id="gamelocation" name="location" placeholder="Enter Location">
+      <br>
       <p><label>Status:</label></p>
-      <p><input type="radio" name="status" value="home" id="gameStatus">Home</p>
-      <p><input type="radio" name="status" value="away" id="gameStatus">Away</p>
+      <p><input type="radio" name="status" value="Home" id="homeawaystatus">Home</p>
+      <p><input type="radio" name="status" value="Away" id="homeawaystatus">Away</p>
       <input type="submit" value="Add Game" id="saveButton">
-    </form>
-    <script>
-      var submitBtn = document.getElementById('addGameSubmitBtn');
+		</form>
+	</div>
+	
+	<script>
+	
+		var sButton = document.getElementById('saveButton'); 
+    var tod = document.getElementById('timeofdayradio').value;
+    var gTime = document.getElementById('gametime').value;
 
-  	  submitBtn.addEventListener('click', function() {
-	    var theTeam= document.getElementById('OppTeam').value;
-	    var theDate = document.getElementById('gameDate').value;
-	    var theTime = document.getElementById('gametime').value;
-	    var theLocation = document.getElementById('location').value;
-	    var isHomeGame = document.getElementById('addgamehome').checked;
-	    var game = {};
-	    game.oppTeam = theTeam;
-	    game.date = theDate;
-	    game.time = theTime;
-	    game.location = theLocation;
-  	  game.home = isHomeGame;
-	    game.myTeamScore = 0;
-	    game.myTeamFoul = 0;
-	    game.myTeamRed = 0;
-	    game.myTeamYellow = 0;
-	    game.myTeamShots = 0;
-	    game.myTeamGoals = 0;
-	    game.myTeamCornerKicks = 0;
-	    game.myTeamGoalKicks = 0;
-	    game.oppTeamScore = 0;
-	    game.oppTeamFoul = 0;
-	    game.oppTeamRed = 0;
-	    game.oppTeamYellow = 0;
-	    game.oppTeamShots = 0;
-	    game.oppTeamGoals = 0;
-	    game.oppTeamCornerKicks = 0;
-	    game.oppTeamGoalKicks = 0;
+    sButton.addEventListener('click', function() {
 
-  	  var gameList = JSON.parse(localStorage.getItem('games'));
+      var game = {}; 
 
-	    if (gameList) {
-	      gameList.push(game);
-	      localStorage.setItem('games', JSON.stringify(gameList));
-	    }
-	    else {
-	  	  var gameListInitialize = [game];
-		  localStorage.setItem('games', JSON.stringify(gameListInitialize));
-	    }
-	  });
+      game.opponentname = document.getElementById('opponentteamname').value; 
+      game.date = document.getElementById('gamedate').value; 
 
-      function logoutClean() {
-        localStorage.removeItem("user");
+      if(tod == "am") {
+        gTime.concat(" am");
       }
-    </script>
-  </div>
-<!--  <button onclick="test()">Test button</button> -->
+      else {
+        gTime.concat(" pm"); 
+      }
+
+      game.time = gTime; 
+      game.location = document.getElementById('gamelocation').value;
+      game.status = document.getElementById('homeawaystatus').value;
+      game.finished = false;
+      game.won = false; 
+
+      var gamestats = {}
+      gamestats.myscore = 0; 
+      gamestats.opponentscore = 0; 
+      gamestats.myfoul = 0; 
+      gamestats.opponentfoul = 0; 
+      gamestats.myredcard = 0; 
+      gamestats.opponentredcard = 0; 
+      gamestats.myyellowcard = 0; 
+      gamestats.opponentyellowcard = 0; 
+      gamestats.myshotsongoal = 0; 
+      gamestats.opponentshotsongoal = 0; 
+      gamestats.mygoals = 0; 
+      gamestats.opponentgoals = 0; 
+      gamestats.mycornerkicks = 0; 
+      gamestats.opponentcornerkicks = 0; 
+      gamestats.mygoalkicks = 0; 
+      gamestats.opponentgoalkicks = 0; 
+
+      game.stats = gamestats;
+
+
+      var gamesArray = JSON.parse(localStorage.getItem('games')); 
+      if(gamesArray) {
+        gamesArray.push(game); 
+        gamesArray.sort(function(a, b) {
+		      return new Date(b.date + ' ' + b.time) - new Date(a.date + ' ' + a.time);
+        });
+
+        alert('storing on existing'); 
+
+        localStorage.setItem('games', JSON.stringify(gamesArray)); 
+      }
+      else{
+
+        alert('storing on new'); 
+        
+        var gameArr = [game]; 
+        localStorage.setItem('games', JSON.stringify(gameArr));
+      }
+
+    })
+
+    sButton.addEventListener('click', function() {
+
+      var arr = JSON.parse(localStorage.getItem('games')); 
+
+      for( var y = 0; y < arr.length; y++) {
+
+        alert("At " + y + " it is game " + arr[y].opponentname + " " + arr[y].date + " " + arr[y].time);
+
+      }
+
+    })
+
+/*
+    sButton.addEventListener('click', function() {
+      location.href="./gameschedule.html"; 
+    })
+*/		
+
+
+		function logoutClean() {
+			localStorage.removeItem("user");
+		}
+
+	</script>
 </body>
 </html>
+
+
+<!--
+
+  added radio button to indicate whether time is AM or PM. 
+  later utilized for time storing and parsing for games.
+
+ -->
