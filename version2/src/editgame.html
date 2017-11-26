@@ -122,8 +122,6 @@
           cgame.tod = tod; 
           cgame.location = l.value;
 
-alert("going to update: " + glist[g].opponentname + " game");
-
           glist.sort(function(a, b) {
 		        return new Date(a.date + ' ' + a.time) - new Date(b.date + ' ' + b.time);
           });
@@ -140,8 +138,6 @@ alert("going to update: " + glist[g].opponentname + " game");
 
         if( (glist[g].opponentname == game.opponentname) 
         && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
-
-alert("going to delete: " + glist[g].opponentname + " game");
           glist.splice(g, 1); 
           localStorage.setItem('games', JSON.stringify(glist));
         }
