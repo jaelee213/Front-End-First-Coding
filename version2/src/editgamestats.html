@@ -93,9 +93,9 @@
         if( (glist[g].opponentname == gam.opponentname) 
         && (gdate.setHours(0, 0, 0, 0) == gadate.setHours(0, 0, 0, 0))){
           
-					var gm = {};
+					var gm = glist[g].stats; 
 
-alert("STORING CHANGES:" + myteamscorevgs.innerHTML); 
+alert("STORING CHANGES:" + myteamscorevgs.innerHTML + " replacing " + gm.mygoals); 
 
 					gm.mygoals = myteamscorevgs.innerHTML; 
 					gm.opponentgoals = oppteamscoresvgs.innerHTML;
