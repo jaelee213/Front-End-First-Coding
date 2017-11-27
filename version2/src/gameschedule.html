@@ -37,42 +37,44 @@
       var myname = localStorage.getItem('myteamname');
       var disGam = document.getElementById('outputgames');
 
-      for (var i = 0; i < gArray.length; i++) {
+      if(gArray) {
+        for (var i = 0; i < gArray.length; i++) {
 
-        var todayDate = new Date();
-        var compareDate = new Date(gArray[i].date);
+          var todayDate = new Date();
+          var compareDate = new Date(gArray[i].date);
 
-        if( todayDate.setHours(0, 0, 0, 0) == compareDate.setHours(0, 0, 0, 0) ) {
+          if( todayDate.setHours(0, 0, 0, 0) == compareDate.setHours(0, 0, 0, 0) ) {
 
-          disGam.innerHTML += "<div class='box0'><h2>Today's Game: " + gArray[i].date
-          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname + "</h3>"
-          + "<h4><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></h4>"
-          + "<p>" + gArray[i].date + " " + gArray[i].time
-          + "</p><p>" + gArray[i].location
-          + "</p><p>" + gArray[i].status
-          + "</p><input type='button' value='View Stats' class='viewStatsBtn'>"
-          + "<input type='button' value='Edit Game' class='editGameBtn'></div>";
+            disGam.innerHTML += "<div class='box0'><h2>Today's Game: " + gArray[i].date
+            + "</h2><h3>" + myname + " vs " + gArray[i].opponentname + "</h3>"
+            + "<h4><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></h4>"
+            + "<p>" + gArray[i].date + " " + gArray[i].time
+            + "</p><p>" + gArray[i].location
+            + "</p><p>" + gArray[i].status
+            + "</p><input type='button' value='View Stats' class='viewStatsBtn'>"
+            + "<input type='button' value='Edit Game' class='editGameBtn'></div>";
+          }
+
+          else if(todayDate.setHours(0, 0, 0, 0) > compareDate.setHours(0, 0, 0, 0)) {
+            disGam.innerHTML += "<div class='box0'><h2>Previous Game: " + gArray[i].date
+            + "</h2><h3>" + myname + " vs " + gArray[i].opponentname + "</h3>"
+            + "<h4><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></h4>"
+            + "<p>" + gArray[i].date + " " + gArray[i].time
+            + "</p><p>" + gArray[i].location
+            + "</p><p>" + gArray[i].status
+            + "</p><input type='button' value='View Stats' class='viewStatsBtn'></div>";
+          }
+
+          else if(todayDate.setHours(0, 0, 0, 0) < compareDate.setHours(0, 0, 0, 0)) {
+            disGam.innerHTML += "<div class='box0'><h2>Upcoming Game: " + gArray[i].date
+            + "</h2><h3>" + myname + " vs " + gArray[i].opponentname
+            + "</h3><p>" + gArray[i].date + " " + gArray[i].time
+            + "</p><p>" + gArray[i].location
+            + "</p><p>" + gArray[i].status
+            + "</p><input type='button' value='Edit Game' class='editGameBtn'></div>";
+          }
+
         }
-
-        else if(todayDate.setHours(0, 0, 0, 0) > compareDate.setHours(0, 0, 0, 0)) {
-          disGam.innerHTML += "<div class='box0'><h2>Previous Game: " + gArray[i].date
-          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname + "</h3>"
-          + "<h4><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></h4>"
-          + "<p>" + gArray[i].date + " " + gArray[i].time
-          + "</p><p>" + gArray[i].location
-          + "</p><p>" + gArray[i].status
-          + "</p><input type='button' value='View Stats' class='viewStatsBtn'></div>";
-        }
-
-        else if(todayDate.setHours(0, 0, 0, 0) < compareDate.setHours(0, 0, 0, 0)) {
-          disGam.innerHTML += "<div class='box0'><h2>Upcoming Game: " + gArray[i].date
-          + "</h2><h3>" + myname + " vs " + gArray[i].opponentname
-          + "</h3><p>" + gArray[i].date + " " + gArray[i].time
-          + "</p><p>" + gArray[i].location
-          + "</p><p>" + gArray[i].status
-          + "</p><input type='button' value='Edit Game' class='editGameBtn'></div>";
-        }
-
       }
     })
 
@@ -81,26 +83,29 @@
       var editButton = document.querySelectorAll("input.editGameBtn");
       var viewButton = document.querySelectorAll("input.viewStatsBtn");
 
-      for(var x = 0; x < viewButton.length; x++) {
-        (function(index) {
-          viewButton[index].addEventListener('click', function(){
-            localStorage.setItem('gametoview', JSON.stringify(gArray[index]));
-          });
-        })(x);
-        viewButton[x].addEventListener('click', function(){
-          location.href='./viewgamestats.html';
-        })
-      }
+      if(gArray) {
+        for(var x = 0; x < viewButton.length; x++) {
+          (function(index) {
+            viewButton[index].addEventListener('click', function(){
+              localStorage.setItem('gametoview', JSON.stringify(gArray[index]));
+            });
+          })(x);
+          viewButton[x].addEventListener('click', function(){
+            location.href='./viewgamestats.html';
+          })
+        }
+      
 
-      for(var y = 0; y < editButton.length; y++) {
-        (function(index) {
-          editButton[index].addEventListener('click', function(){
-            localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length - index)]));
-          });
-        })(y);
-        editButton[y].addEventListener('click', function(){
-          location.href='./editgame.html';
-        })
+        for(var y = 0; y < editButton.length; y++) {
+          (function(index) {
+            editButton[index].addEventListener('click', function(){
+              localStorage.setItem('gametoedit', JSON.stringify(gArray[gArray.length - (editButton.length - index)]));
+            });
+          })(y);
+          editButton[y].addEventListener('click', function(){
+            location.href='./editgame.html';
+          })
+        }
       }
 
       var username = localStorage.getItem("user");
