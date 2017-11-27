@@ -53,11 +53,13 @@
       var tbl = document.getElementById('outputdata');
       var rosArray = JSON.parse(localStorage.getItem('roster'));
 
-      for (var i = 0; i < rosArray.length; i++) {
-        tbl.innerHTML += "<tr><td>" + rosArray[i].jerseynumber + "</td><td>" + rosArray[i].position + "</td><td>"
-        + rosArray[i].name + "</td><td>" + rosArray[i].goals + "</td><td>" + rosArray[i].assists + "</td><td>"
-        + rosArray[i].fouls + "</td><td>" + rosArray[i].redcards + "</td><td>" + rosArray[i].yellowcards +
-          "</td><td>" + rosArray[i].gamesplayed + "</td></tr>";
+      if(rosArray) {
+        for (var i = 0; i < rosArray.length; i++) {
+          tbl.innerHTML += "<tr><td>" + rosArray[i].jerseynumber + "</td><td>" + rosArray[i].position + "</td><td>"
+          + rosArray[i].name + "</td><td>" + rosArray[i].goals + "</td><td>" + rosArray[i].assists + "</td><td>"
+          + rosArray[i].fouls + "</td><td>" + rosArray[i].redcards + "</td><td>" + rosArray[i].yellowcards +
+            "</td><td>" + rosArray[i].gamesplayed + "</td></tr>";
+        }
       }
     })
 
