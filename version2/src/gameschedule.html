@@ -11,7 +11,7 @@
   <title>Game Schedule</title>
 </head>
 
-<body onload="btnStatus()">
+<body>
   <nav class="navbar">
     <a href="./home.html" id="logo">TeamWatch</a>
     <a href="./home.html">Home</a>
@@ -102,19 +102,15 @@
           location.href='./editgame.html';
         })
       }
-    }
 
-    window.onload = afterLoad;
-
-    function btnStatus() {
       var username = localStorage.getItem("user");
       if(username != 'coach') {
         document.getElementById('addGameBtn').style.display = 'none';
         document.getElementById('addPracBtn').style.display = 'none';
-        document.getElementById('editBtn1').style.display = 'none';
-        document.getElementById('editBtn2').style.display = 'none';
       }
     }
+
+    window.onload = afterLoad;
 
     function logoutClean() {
       localStorage.removeItem("user");

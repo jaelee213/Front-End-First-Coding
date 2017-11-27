@@ -43,57 +43,62 @@
   </div>
   <script>
 
-		var game = JSON.parse(localStorage.getItem('gametoview')); 
+		var game = JSON.parse(localStorage.getItem('gametoview'));
 
   	window.addEventListener('DOMContentLoaded', function() {
 
 			var stats = game.stats;
-			var my = document.getElementById('myteam'); 
+			var my = document.getElementById('myteam');
 			var their = document.getElementById('oppteam');
 
 			my.innerHTML = localStorage.getItem('myteamname');
 			their.innerHTML = game.opponentname;
 
-			var ms = document.getElementById('myscore'); 
+			var ms = document.getElementById('myscore');
 			var ts = document.getElementById('theirscore');
-			var mg = document.getElementById('mygoals'); 
+			var mg = document.getElementById('mygoals');
 			var tg = document.getElementById('theirgoals');
-			var mf = document.getElementById('myfouls'); 
-			var tf = document.getElementById('theirfouls'); 
-			var mrc = document.getElementById('myredcards'); 
+			var mf = document.getElementById('myfouls');
+			var tf = document.getElementById('theirfouls');
+			var mrc = document.getElementById('myredcards');
 			var trc = document.getElementById('theirredcards');
-			var myc = document.getElementById('myyellowcards'); 
-			var tyc = document.getElementById('theiryellowcards'); 
-			var msog = document.getElementById('myshotsongoal'); 
-			var tsog = document.getElementById('theirshotsongoal'); 
-			var mck = document.getElementById('mycornerkicks'); 
-			var tck = document.getElementById('theircornerkicks'); 
-			var mgk = document.getElementById('mygoalkicks'); 
+			var myc = document.getElementById('myyellowcards');
+			var tyc = document.getElementById('theiryellowcards');
+			var msog = document.getElementById('myshotsongoal');
+			var tsog = document.getElementById('theirshotsongoal');
+			var mck = document.getElementById('mycornerkicks');
+			var tck = document.getElementById('theircornerkicks');
+			var mgk = document.getElementById('mygoalkicks');
 			var tgk = document.getElementById('theirgoalkicks');
 
-			ms.innerHTML = stats.mygoals; 
-			ts.innerHTML = stats.opponentgoals; 
-			mg.innerHTML = stats.mygoals; 
+			ms.innerHTML = stats.mygoals;
+			ts.innerHTML = stats.opponentgoals;
+			mg.innerHTML = stats.mygoals;
 			tg.innerHTML = stats.opponentgoals;
 			mf.innerHTML = stats.myfouls;
-			tf.innerHTML = stats.opponentfouls; 
-			mrc.innerHTML = stats.myredcards; 
-			trc.innerHTML = stats.opponentredcards; 
-			myc.innerHTML = stats.myyellowcards; 
-			tyc.innerHTML = stats.opponentyellowcards; 
-			msog.innerHTML = stats.myshotsongoal; 
-			tsog.innerHTML = stats.opponentshotsongoal; 
-			mck.innerHTML = stats.mycornerkicks; 
-			tck.innerHTML = stats.opponentcornerkicks; 
-			mgk.innerHTML = stats.mygoalkicks; 
-			tgk.innerHTML = stats.opponentgoalkicks; 
+			tf.innerHTML = stats.opponentfouls;
+			mrc.innerHTML = stats.myredcards;
+			trc.innerHTML = stats.opponentredcards;
+			myc.innerHTML = stats.myyellowcards;
+			tyc.innerHTML = stats.opponentyellowcards;
+			msog.innerHTML = stats.myshotsongoal;
+			tsog.innerHTML = stats.opponentshotsongoal;
+			mck.innerHTML = stats.mycornerkicks;
+			tck.innerHTML = stats.opponentcornerkicks;
+			mgk.innerHTML = stats.mygoalkicks;
+			tgk.innerHTML = stats.opponentgoalkicks;
+
+      var username = localStorage.getItem("user");
+      if(username != 'coach') {
+        document.getElementById('editgamestatsBtn').style.display = 'none';
+      }
   	});
 
 
-		var edBtn = document.getElementById('editgamestatsBtn'); 
+		var edBtn = document.getElementById('editgamestatsBtn');
 
-		edBtn.addEventListener('click', function() { 
-			localStorage.setItem('gamestattoedit', JSON.stringify(game)); 
+		edBtn.addEventListener('click', function() {
+			localStorage.setItem('gamestattoedit', JSON.stringify(game));
 		})
 
     function logoutClean() {
