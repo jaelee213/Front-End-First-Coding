@@ -34,8 +34,8 @@
 
   <script>
   function loginAuthen()  {
-    const user = document.getElementById('loginemail').value;
-    const pwd = document.getElementById('loginpassword').value;
+    var user = document.getElementById('loginemail').value;
+    var pwd = document.getElementById('loginpassword').value;
 
     if(user!='coach' && user!='player' && user!='fan' || pwd!='cse134b') {
       alert('Wrong Email and/or Password');
