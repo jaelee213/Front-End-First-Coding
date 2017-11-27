@@ -23,9 +23,9 @@
       <h5>Please fill out the following to add a new player to the team.</h5>
       <hr>
 
-      <img src="" alt="Default Pic">
+      <img src="#" alt="Default Pic" id="profile">
       <h6>** To edit player picture, press the "choose file" button below **</h6>
-      <<input type="file" name="propic" id="fileBtn" onchange="document.getElementById('profile').src = window.URL.createObjectURL(this.files[0])" accept="image/*">
+      <input type="file" name="propic" id="fileBtn" onchange="document.getElementById('profile').src = window.URL.createObjectURL(this.files[0])" accept="image/*">
       <hr>
 
       <form class="form1">
@@ -72,7 +72,7 @@
       nm = fn.concat(" ");
       nm = nm.concat(ln);
 
-      window.addEventListener('DOMContentLoaded',function() {
+      window.addEventListener('DOMContentLoaded', function() {
         document.getElementById('profile').src = "../img/defaultpic.jpg";
       })
 
