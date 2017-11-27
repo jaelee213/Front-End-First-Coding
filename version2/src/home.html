@@ -109,19 +109,19 @@
 
 
 			if(gArray) {
-				for (var i = 0; i < gArray.length; i++) {
+				for (var z = 0; z < gArray.length; z++) {
 
-					var todayDate = new Date();
-					var compareDate = new Date(gArray[i].date);
+					var todayDat = new Date();
+					var compareDat = new Date(gArray[z].date);
 
-					if( todayDate.setHours(0, 0, 0, 0) == compareDate.setHours(0, 0, 0, 0) ) {
+					if( todayDat.setHours(0, 0, 0, 0) == compareDat.setHours(0, 0, 0, 0) ) {
 
-						disGam.innerHTML += "<div class='gamecontainer'><h1>Today's Game: " + gArray[i].date
-						+ "</h1><p>" + myname + " vs " + gArray[i].opponentname + "</p>"
-						+ "<p><mark>" + gArray[i].stats.mygoals + " : " + gArray[i].stats.opponentgoals + "</mark></p>"
-						+ "<p>" + gArray[i].date + " " + gArray[i].time
-						+ "</p><p>" + gArray[i].location
-						+ "</p><p>" + gArray[i].status
+						disGam.innerHTML += "<div class='gamecontainer'><h1>Today's Game: " + gArray[z].date
+						+ "</h1><p>" + myname + " vs " + gArray[z].opponentname + "</p>"
+						+ "<p><mark>" + gArray[z].stats.mygoals + " : " + gArray[z].stats.opponentgoals + "</mark></p>"
+						+ "<p>" + gArray[z].date + " " + gArray[z].time
+						+ "</p><p>" + gArray[z].location
+						+ "</p><p>" + gArray[z].status
 						+ "</p></div>";
 					}
 				}
